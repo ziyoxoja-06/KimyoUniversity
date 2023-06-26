@@ -15,12 +15,12 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: '../static/img/Manage-one.jpg'
       },
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: '../static/img/Manage-one.jpg'
       }
     ]
   },
@@ -32,7 +32,7 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: '../static/img/Manage-one.jpg'
       }
     ]
   },
@@ -45,7 +45,7 @@ const pagesList = {
       {
         name: 'Head of AES - Makhamadiyev Kh.B',
         role: '',
-        img: 'src/static/img/Manage-one.jpg'
+        img: '../static/img/Manage-one.jpg'
       }
     ]
   },
