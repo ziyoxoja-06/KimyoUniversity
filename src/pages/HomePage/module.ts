@@ -93,9 +93,9 @@ const cardDatas=[
   },
 ]
 const images = [
-  '../static/img/carusel_1.jpg',
-  '../static/img/carusel_2.jpg',
-  '../static/img/carusel_3.jpg'
+  '/src/static/img/carusel_1.jpg',
+  '/src/static/img/carusel_2.jpg',
+  '/src/static/img/carusel_3.jpg'
 ]
 
 export {

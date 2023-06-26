@@ -1,5 +1,5 @@
 <script setup>
-const imgs =['../../static/img/unique-project/one.jfif','../../static/img/unique-project/two.jfif']
+const imgs =['/src/static/img/unique-project/one.jfif','/src/static/img/unique-project/two.jfif']
 </script>
 
 <template>

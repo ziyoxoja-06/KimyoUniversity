@@ -45,7 +45,7 @@ const pagesList = {
       {
         name: 'Head of AES - Makhamadiyev Kh.B',
         role: '',
-        img: '../static/img/Manage-one.jpg'
+        img: '/src/static/img/Manage-one.jpg'
       }
     ]
   },
