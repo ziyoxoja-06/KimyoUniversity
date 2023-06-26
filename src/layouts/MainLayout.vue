@@ -97,7 +97,7 @@ function change (){
               :style="scrollTop?'border-radius:0; ':'box-shadow: rgba(255,255,255,0.39) 0 10px 30px; border-radius: 50%'"
               :alt="$t(`mainLayout.nameUniver`)"
               :title="$t('mainLayout.nameUniver')"
-              src="src/static/img/header_logo.png"
+              src="../static/img/header_logo.png"
               style="max-width:50px;min-width:50px;" @click="$router.push('/')"/>
           </div>
           <div class="nav__main__text flex items-center cursor-pointer"  @click="$router.push('/')"
