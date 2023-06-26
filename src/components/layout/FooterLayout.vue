@@ -4,7 +4,7 @@
     <div class="row q-mb-xl">
       <div class="col-md-6">
         <div class="footer__logo flex items-center ">
-          <img width="130" height="130" alt="image" src="src/static/img/header_logo.png"/>
+          <img width="130" height="130" alt="image" src="src/assets/img/header_logo.png"/>
           <div class="footer__title">
             O‘zbekiston Respublikasi <br/> Fanlar akademiyasi <br/>
             Umumiy va noorganik <br/> kimyo instituti
