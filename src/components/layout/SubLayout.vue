@@ -2,156 +2,242 @@
 import { computed, watch,ref ,onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import {useQuasar} from "quasar";
-import { options} from 'src/components/layout/module/Sublayout.ts';
+import { options} from 'src/components/layout/Sublayout.ts';
 import {useLayoutStore} from "../../stores/layout";
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const { t, locale } = useI18n()
 const $q = useQuasar();
 const menu = computed(() => {
   return [
     {
       title:t('subLayout.about'),
+      path:'#',
       options:[
         {
           title:t('subLayout.about_item.organize'),
+          path:'structure',
           options:[]
         },
         {
           title:t('subLayout.about_item.about_institute'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.about_item.leadership'),
+          path:'managment',
           options:[]
         },
         {
           title:t('subLayout.about_item.institute_directors'),
+          path:'directors',
           options:[]
         },
         {
           title:t('subLayout.about_item.manage_structure'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.about_item.important_results'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.about_item.scientific_research'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.about_item.academics'),
+          path:'#',
           options:[]
         },
       ]
     },
     {
       title:t('subLayout.labaratories'),
+      path:'#',
       options:[
         {
           title:t('subLayout.labaratories'),
+          path:'#',
           options:[
             {
               title:t('subLayout.labaratories_item.under_ears'),
+              path:'seismodinamic',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.astranout'),
+              path:'dynamic',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.construction'),
+              path:'experimental',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.buildings'),
+              path:'mechanic',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.mechanizm'),
+              path:'theory',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.dinamics'),
+              path:'prosses',
               options:[]
             },
             {
               title:t('subLayout.labaratories_item.fluid'),
+              path:'gas',
               options:[]
             },
           ]
         },
         {
           title:t('subLayout.information_anlys'),
+          path:'info-analitical',
           options:[]
         },
         {
           title:t('subLayout.information_base'),
+          path:'info-resurse-center',
           options:[]
         },
         {
           title:t('subLayout.unique_objects'),
+          path:'unique-project',
           options:[]
         },
         {
           title:t('subLayout.personnel_department'),
+          path:'personnel-inspector',
           options:[]
         },
         {
           title:t('subLayout.economic_service'),
+          path:'admin-economic',
           options:[]
         }
       ]
     },
     {
       title:t('subLayout.activities'),
+      path:'#',
       options:[
         {
           title:t('subLayout.scientific_activity'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.scientific_council'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.scientific_seminars'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.scientific_grants'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.scientific_cooperation'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.young_scientists'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.training_students'),
+          path:'#',
           options:[]
         },
         {
           title:t('subLayout.photo'),
+          path:'#',
           options:[]
         }
       ]
     },
     {
-      title:'Biz haqimizda',
-      options: []
+      title:t('subLayout.special_council'),
+      path:'#',
+      options: [
+        {
+          title:t('subLayout.scientific_degrees'),
+          path:'#',
+          options: []
+        },
+        {
+          title:t('subLayout.special_seminars'),
+          path:'#',
+          options: []
+        },
+        {
+          title:t('subLayout.dissertations'),
+          path:'#',
+          options: []
+        },
+
+      ]
     },
     {
-      title:'Biz haqimizda',
-      options: []
+      title: t('subLayout.doctarate_coure'),
+      path:'#',
+      options: [
+        {
+          title: t('subLayout.course_dsc'),
+          path:'course-dsc',
+          options: []
+        },
+        {
+          title: t('subLayout.course_phd'),
+          path:'course-phd',
+          options: []
+        },
+        {
+          title: t('subLayout.course_ind'),
+          path:'course-ind',
+          options: []
+        },
+      ]
     },
     {
-      title:'Biz haqimizda',
-      options: []
+      title:t('subLayout.journal'),
+      path:'#',
+      options: [
+        {
+          title:t('subLayout.journal_about'),
+          path:'#',
+          options: []
+        },
+        {
+          title:t('subLayout.write'),
+          path:'#',
+          options: []
+        },
+        {
+          title:t('subLayout.archive'),
+          path:'#',
+          options: []
+        },
+      ]
     },
   ]
 })
@@ -171,7 +257,12 @@ function langChange(item) {
   model.value = item.label
   console.log(window.pageYOffset , document.documentElement.scrollTop , document.body.scrollTop , 0)
 }
-
+function newRoute(check,item) {
+  if(!check || item.path!=='#'){
+    store.newRoute(item.path)
+    router.push(item.path)
+  }
+}
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
   model.value = locale.value.split('-')[0]
@@ -183,7 +274,7 @@ onUnmounted(() => {
 </script>
 <template>
 <div class="sub__container " :style="store.responsive || screenSize.width>1034 ?'display:flex':'display:none'">
-  <div class="sub__menu__group " :style="store.responsive || screenSize.width>1034?'display:flex':'display:none'">
+  <div class="sub__menu__group " :style="store.responsive || screenSize.width>1034?$q.dark.isActive &&screenSize.width<1034 ?'display:flex; background-color: black; color:white; ':'display:flex;':'display:none' ">
     <div class="btn">
       <div class=" btn__group flex">
         <div class=" btn__animation">
@@ -211,14 +302,14 @@ onUnmounted(() => {
       <q-icon size="20px" name="arrow_drop_down" v-if="item.options.length>0" />
       <q-menu v-if="item.options.length>0">
         <q-list  v-for="item2 in item.options">
-          <q-item clickable v-close-popup="item2.options.length<0" >
+          <q-item clickable @click="newRoute(true,item2)" v-close-popup="item2.options.length<0" >
             <q-item-section>{{ item2?.title }}</q-item-section>
             <q-item-section side>
               <q-icon name="keyboard_arrow_right" v-if="item2.options.length>0" />
             </q-item-section>
               <q-menu anchor="top end" self="top start">
                 <q-list v-for="item3 in item2.options" >
-                  <q-item clickable v-close-popup="item3.options.length>0">
+                  <q-item clickable  @click="newRoute(item3.options.length<0,item3)" v-close-popup="item3.options.length>0">
                   <q-item-label>{{item3?.title}}</q-item-label>
                 </q-item>
                 </q-list>
@@ -401,7 +492,7 @@ $bace-color: #363636;
       justify-content: start;
       flex-direction: column;
       position: absolute;
-      background-color: white;
+
       z-index: 99;
       top: 0;
       transform: translateX(50%);

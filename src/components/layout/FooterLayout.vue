@@ -130,7 +130,7 @@ const footer = [
     font-family: -apple-system-500, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   .media{
-    width: 30%;
+    width: 150px;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -183,6 +183,7 @@ const footer = [
     &__map{
       display: flex;
       justify-content: center;
+      color: red;
     }
   }
 }

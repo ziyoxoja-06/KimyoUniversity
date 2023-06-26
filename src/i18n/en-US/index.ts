@@ -55,5 +55,17 @@ export default {
     scientific_degrees:'The list of the members of scientific council awarding the scientific degrees',
     scientific_seminar: 'A list if the members of scientific seminar at scientific council awarding the scientific degrees',
     dissertations: 'Thesis and dissertations',
+
+    // Doctorate course
+    doctarate_coure: 'Doctorate course',
+    course_dsc: 'Doctorate course (DSc)',
+    course_phd: 'Базовый курс докторантуры (PhD)',
+    course_ind: 'Независимый конкурс на ученую степень',
+
+    // Journal
+    journal: 'Journal',
+    journal_about: 'About journal',
+    write: 'Rules to write the papers',
+    archive: 'Archive',
   }
 };

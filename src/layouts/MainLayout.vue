@@ -35,9 +35,7 @@ onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
   $q.dark.set(localStorage.getItem("darkMode") === "true")
 });
-onUnmounted(() => {
-  window.removeEventListener('resize', updateScreenSize);
-});
+
 function scrolling() {
   100<window.scrollY? scrollTop.value = true:scrollTop.value = false
 }
@@ -94,15 +92,17 @@ function change (){
       <q-toolbar class="nav__main flex justify-between items-center q-py-sm  shadow-1"
                  :style="scrollTop?'background-color: #363636;':'background-color: #1976D2;'">
         <div class="flex justify-center items-center " :style="screenSize.width<600?'width: 100%;': 'width: 26%;' ">
-          <div class="flex items-center justify-center" :style="screenSize<600?'width: fit-content;':'width: 23%;'">
+          <div class="flex items-center justify-center cursor-pointer" :style="screenSize<600?'width: fit-content;':'width: 23%;'">
             <q-img class="q-mr-sm"
               :style="scrollTop?'border-radius:0; ':'box-shadow: rgba(255,255,255,0.39) 0 10px 30px; border-radius: 50%'"
               :alt="$t(`mainLayout.nameUniver`)"
               :title="$t('mainLayout.nameUniver')"
               src="src/static/img/header_logo.png"
-              style="min-width:50px;" />
+              style="max-width:50px;min-width:50px;" @click="$router.push('/')"/>
           </div>
-          <div class="nav__main__text flex items-center " :style="scrollTop?'color:white':'color:#fff'">UMUMIY VA
+          <div class="nav__main__text flex items-center cursor-pointer"  @click="$router.push('/')"
+               :style="scrollTop?screenSize.width<1100?'color:white; margin-left: 10px':'color:white':'color:#fff'">
+            UMUMIY VA
             NOORGANIK
             KIMYO INSTITUTI
           </div>
@@ -125,20 +125,11 @@ function change (){
         icon="menu"
         padding="5px"
         direction="up"
-        style="position: fixed; top: 85%;right: 50px"
+        style="position: fixed; top: 85%;right: 50px;"
       >
         <q-fab-action color="primary" @click="darkMode"  :icon="$q.dark.mode?'light_mode':'dark_mode'" />
         <q-fab direction="up" color="primary" hide-icon padding="7px" @click="floating.value = false" :label="model">
           <q-fab-action v-for="(item,i) in options" color="purple" :key="i" @click="langChange(item)" :label="item.label"/>
-<!--          <q-menu>-->
-<!--            <q-list>-->
-<!--              <q-item v-for="item in options" v-close-popup clickable @click="langChange(item)">-->
-<!--                <q-item-section>-->
-<!--                  <q-item-label>{{ item.label }}</q-item-label>-->
-<!--                </q-item-section>-->
-<!--              </q-item>-->
-<!--            </q-list>-->
-<!--          </q-menu>-->
         </q-fab>
       </q-fab>
     </q-page-container>
@@ -158,9 +149,9 @@ $bace-color: #363636;
     position: sticky;
 
     &__text{
-      width: 65%;
+      width: 60%;
       font-weight: 700;
-      font-size: 16px
+      font-size: 14px
     }
   }
 }

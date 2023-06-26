@@ -1,19 +1,20 @@
 import { defineStore } from 'pinia';
 
-export const useLayoutStore = defineStore('counter', {
+export const useLayoutStore = defineStore('layout', {
   state: () => ({
     responsive: false,
+    shortRout: '',
   }),
   getters: {
+    getShortRout: (state) => state.shortRout
   },
   actions: {
     change() {
-      console.log('change');
-      if(this.responsive) {
-        this.responsive = false
-      } else {
-        this.responsive = true
-      }
+      this.responsive = !this.responsive;
     },
+    newRoute(item='dynamic') {
+      console.log('change-2')
+      this.shortRout = item
+}
   },
 });

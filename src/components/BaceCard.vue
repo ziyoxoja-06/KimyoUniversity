@@ -1,39 +1,53 @@
 <script setup>
 import {defineProps, ref} from 'vue';
-import { useQuasar } from 'quasar'
+import {useRouter} from 'vue-router';
 const flatCard = ref(true)
-
+const router = useRouter()
 // get configured status
-const props = defineProps(['img_width', 'img_height', 'img_src','announcement'])
+const props = defineProps(
+  ['data']
+)
+
 function change() {
   flatCard.value = !flatCard.value
+}
+function moreInfo(data) {
+  router.push('/news/' + data.id)
 }
 </script>
 
 <template>
-  <q-card bordered class="card" :flat="flatCard" @mouseenter="change" @mouseleave="change" style="transition: all .5s">
+  <q-card :flat="flatCard" :style="!flatCard?'':' transform: translateY(10px); margin-bottom: 10px;'" bordered
+          class="card"
+          style="transition: all .5s;" @mouseenter="change" @mouseleave="change">
     <q-img
-      :height="img_height"
-      :width="img_width"
-      :src="img_src"
+      :src="data.img_src"
+      height="150px"
 
     />
     <q-card-section>
       <q-card-section class="q-pa-sm">
-        <div class="text-h5 q-mb-xs">Title</div>
+        <div class="text-h5 q-mb-xs">{{ data.title }}</div>
         <div class="text-caption text-grey">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          {{ data.description.split('').slice(0, 80).join('') + '...' }}
         </div>
       </q-card-section>
-      <div class="card__date"> <div :class="announcement?'card__announcement':''"><q-icon name="fa-solid fa-calendar-days"/> 16/05/2023</div> <q-btn color="orange" flat dense>Ya'na...</q-btn></div>
+      <div class="card__date">
+        <div class="flex items-center">
+          <q-icon name="fa-solid fa-calendar-days"/>
+          {{ data.date }}
+        </div>
+        <q-btn color="orange" @click="moreInfo(data)" dense flat>Ya'na...</q-btn>
+      </div>
     </q-card-section>
   </q-card>
 </template>
 
-<style scoped lang="scss">
-.card{
-  color: #040460;
-  &__date{
+<style lang="scss" scoped>
+.card {
+  color: #0606a6;
+
+  &__date {
     position: relative;
     top: 0;
     padding-left: 5px;
@@ -42,7 +56,8 @@ function change() {
     justify-content: space-between;
 
   }
-  &__announcement{
+
+  &__announcement {
     position: absolute;
     top: -140px;
     right: -10px;
@@ -50,7 +65,8 @@ function change() {
     color: white;
     padding: 5px;
   }
-  &__date> i{
+
+  &__date > i {
     padding-right: 3px;
   }
 }

@@ -50,6 +50,18 @@ export default {
     special_council:'СПЕЦИАЛЬНЫЙ СОВЕТ',
     scientific_degrees:'Список научного совета по присуждению ученых степеней',
     scientific_seminar:'Cписок семинара при научном совете по присуждению ученых степеней',
-    dissertations:'Авторефераты'
+    dissertations:'Авторефераты',
+
+    // Doctorate course
+    doctarate_coure: 'Докторантский курс',
+    course_dsc: 'Докторантский курc (DSc)',
+    course_phd: 'Asosiy doktorlik kursi (PhD)',
+    course_ind: 'Ilmiy daraja uchun mustaqil tanlov',
+
+    // Journal
+    journal: 'Журнал',
+    journal_about: 'О журнале',
+    write: 'Правила оформления статей',
+    archive: 'Архив',
   }
 }

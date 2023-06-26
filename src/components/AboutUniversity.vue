@@ -31,9 +31,12 @@
 
 <style scoped lang="scss">
   .about__container{
-    min-height: 60vh;
-    margin: 80px;
-    padding-bottom: 150px;
+    min-height: 55vh;
+    margin: 80px 80px 0 80px;
+    padding-bottom: 100px;
+    .about__img{
+      margin: 0 10px 0 10px;
+    }
   }
   @media screen and (max-width: 850px){
     .about{

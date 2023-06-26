@@ -1,0 +1,79 @@
+.color__blue-deep {
+  color: #0606a6;
+}
+
+.banner {
+  width: 95%;
+  min-height: fit-content;
+  margin: 0 auto;
+}
+.tizer {
+  width: 95%;
+  min-height: fit-content;
+  margin: 0 auto;
+}
+
+.home {
+  width: 100%;
+
+  &__scroll {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+
+  &__action {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+  &__btn {
+    box-shadow: #1976D2 0 0 3px;
+    transition: all 2s;
+    animation: homeBtn ease-in 2s infinite;
+
+}
+
+  @keyframes homeBtn {
+  0% {
+  box-shadow: #1976D2 0 0 6px;
+}
+  20% {
+  box-shadow: #1976D2 0 0 9px;
+
+}
+  40% {
+  box-shadow: #1976D2 0 0 12px;
+}
+  60% {
+  box-shadow: #1976D2 0 0 9px;
+}
+  80% {
+  box-shadow: #1976D2 0 0 6px;
+}
+  100% {
+  box-shadow: #1976D2 0 0 3px;
+}
+}
+}
+
+.about__university {
+  height: fit-content;
+}
+
+.news {
+  margin: 40px 20px 20px 20px;
+  height: fit-content;
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+}
+
+.statistic {
+  height: fit-content;
+}

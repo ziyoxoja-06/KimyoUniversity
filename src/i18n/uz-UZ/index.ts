@@ -52,6 +52,18 @@ export default {
     special_council: 'MAXSUS KENGASH ',
     scientific_degrees: 'Ilmiy dаrаjа beruvchi ilmiy kengаsh tаrkibi',
     scientific_seminar:'Ilmiy dаrаjаlаr beruvchi ilmiy kengаsh qoshidаgi ilmiy seminаr tаrkibi',
-    dissertations: 'Аvtoreferatlar va dissertatsiyalar'
+    dissertations: 'Аvtoreferatlar va dissertatsiyalar',
+
+    // Doctorate course
+    doctarate_coure: 'Doktorlik kursi',
+    course_dsc: 'Doktorlik kursi (DSc)',
+    course_phd: 'Asosiy doktorlik kursi (PhD)',
+    course_ind: 'Ilmiy daraja uchun mustaqil tanlov',
+
+    // Journal
+    journal: 'Jurnal',
+    journal_about: 'Jurnal haqida',
+    write: 'Maqolalarni rasmiylashtirish qoidalari',
+    archive: 'Arxiv',
   }
 }
