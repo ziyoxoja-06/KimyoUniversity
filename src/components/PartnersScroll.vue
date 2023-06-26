@@ -4,7 +4,7 @@ const linkData = [
   {
     title: 'Academy of sciences of the Republic of Uzbekistan',
     link: 'https://academy.uz/',
-    img_src: 'src/static/img/partners/fanalar-academy.png',
+    img_src: '../static/img/partners/fanalar-academy.png',
     width: 150,
     height: 180,
   },
@@ -13,42 +13,42 @@ const linkData = [
     link: 'https://nammti.uz/uz/',
     width: 170,
     height: 170,
-    img_src: 'src/static/img/partners/technology.png',
+    img_src: '../static/img/partners/technology.png',
   },
   {
     title: 'Namangan Civil Engineering Institute',
     link: 'https://nammqi.uz/',
     width: 170,
     height: 170,
-    img_src: 'src/static/img/partners/civil.png'
+    img_src: '../static/img/partners/civil.png'
   },
   {
     title: 'Tashkent State Transport University',
     link: 'https://tstu.uz/',
     width: 170,
     height: 170,
-    img_src: 'src/static/img/partners/transport.png'
+    img_src: '../static/img/partners/transport.png'
   },
   {
     title: 'Samarkand State Architectural and Civil-Engineering Institute',
     link: 'https://samdaqi.edu.uz/en',
     width: 170,
     height: 170,
-    img_src: 'src/static/img/partners/architectural.png'
+    img_src: '../static/img/partners/architectural.png'
   },
   // {
   //   title: 'Tashkent State Technical University',
   //   link: 'http://tdtu.uz/en/home-2-2/',
   //   width: 170,
   //   height: 170,
-  //   img_src: 'src/static/img/partners/tashkent-tech.png'
+  //   img_src: '../static/img/partners/tashkent-tech.png'
   // },
   // {
   //   title: 'Tashkent Institute of Irrigation and Agricultural Mechanization Engineers',
   //   link: 'https://ziyonet.uz',
   //   width: 120,
   //   height: 170,
-  //   img_src: 'src/static/img/partners/irrigation.png'
+  //   img_src: '../static/img/partners/irrigation.png'
   // }
 ]
 function openNewTab(link) {
