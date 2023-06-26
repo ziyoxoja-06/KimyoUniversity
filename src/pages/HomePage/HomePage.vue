@@ -77,7 +77,7 @@ onMounted(() => {
     </section>
 <!--   Tizer Video  -->
     <section class="tizer">
-      <video autoplay loop muted src="src/static/video/tizer.mp4" style=" width: 100%; border-radius: 10px"/>
+      <video autoplay loop muted src="../../static/video/tizer.mp4" style=" width: 100%; border-radius: 10px"/>
     </section>
 <!--    Usefull Link -->
     <section id="links">
