@@ -3,7 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {computed, onMounted, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
-const layoutStore = useLayoutStore()
+const layout = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 const pagesList = {
@@ -131,24 +131,22 @@ const pagesList = {
   }
 }
 const pageHtml = computed(()=> {
-  return pagesList[layoutStore.shortRout]
+  return pagesList[layout.shortRout]
 })
 const columns = [
   {name: 'id', label: '№', field: 'id', align: 'left', sortable: true, style: 'width: 20px'},
   {
     name: 'name',
     required: true,
-    label: 'Name',
+    label: 'Full name',
     align: 'left',
     field: row => row.name,
     format: val => `${val}`,
     sortable: true,
     style: 'width: 100px'
   },
-  {name: 'degree', align: 'left', label: 'Degree', field: 'degree', sortable: true},
+  {name: 'degree', label: 'Scientific degree, scientific title', field: 'degree', align: 'left', sortable: true},
   {name: 'position', label: 'Position', field: 'position', align: 'left', sortable: true},
-  {name: 'contact', label: 'Contact', align: 'left', field: 'contact'},
-  {name: 'email', label: 'Email', align: 'left', field: 'email'},
 ]
 
 const rows = [
@@ -184,97 +182,54 @@ const updateScreenSize = () => {
 };
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
-  layoutStore.newRoute(route.path.split('/')[1])
-  layoutStore.pageLoader = false
+  layout.newRoute(route.path.split('/')[1])
+  layout.pageLoader = false
   pageHtml.value = pagesList[route.path.split('/')[1] ? route.path.split('/')[1] : 'not-found']
 });
 onUnmounted(()=>{
-  layoutStore.pageLoader = true
+  layout.pageLoader = true
 })
 </script>
 
 <template>
   <div class="lab">
-    <p v-if="pageHtml?.title==='No data'" class="text-h4 text-weight-bold text-center">{{pageHtml?.title}}</p>
-    <div v-else>
-      <p class="text-h5 q-mt-lg text-center text-weight-bold">{{ pageHtml?.title }}</p>
-      <p v-for="(item,i) in pagesList[layoutStore.shortRout]?.description.split('\n')" :key="i" class="lab__description">
-        <span v-if="i===0" class="text-weight-bold">Main directions of the laboratory: </span>
-        {{ item }}<br>
-      </p>
-      <div class="user">
-        <p class=" q-mt-xl text-center text-weight-bold">Head of laboratory</p>
-        <div class="user__content">
-          <img :src="pagesList[layoutStore.shortRout]?.teacher.img" alt="" class="user__img">
-          <div class="user__info">
-            <p class="">{{ pagesList[layoutStore.shortRout]?.teacher.full_name }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.degree }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.number }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.email }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="table">
-        <q-table
-          :columns="columns" :filter="filter"
-          :grid="screenSize.width < 1250"
-          :hide-header="screenSize.width < 750"
-          :rows="rows"
-          bordered
-          class="q-mt-md"
-          flat
-          row-key="name"
-        >
-          <template v-slot:top-right>
-            <q-input v-model="filter" borderless debounce="300" dense placeholder="Search">
-              <template v-slot:append>
-                <q-icon name="search"/>
-              </template>
-            </q-input>
-          </template>
-          <template #body-cell-degree="props">
-            <q-td :props="props" key="degree">
-              {{ props.row.degree.length>35 ? props.row.degree.slice(0,35)+'...' : props.row.degree }}
-            </q-td>
-          </template>
-        </q-table>
-      </div>
+    <p class="title text-center text-h5 text-weight-bold">Scientific grants carried out within the framework of the State Scientific-Technical Programs</p>
+    <p class="title__unique">Academy of Sciences of the Republic of Uzbekistan Scientific grants carried out within the framework of the State Scientific-Technical Programs</p>
+    <div class="q-pt-sm">
+      <q-table
+        table-header-class="bg-green-5"
+        :columns="columns" :filter="filter"
+        :grid="screenSize.width < 1250"
+        :hide-header="screenSize.width < 750"
+        :rows="rows"
+        bordered
+        class="q-mt-md"
+        flat
+        row-key="name"
+      >
+        <template #body-cell-degree="props">
+          <q-td :props="props" key="degree">
+            {{ props.row.degree.length>35 ? props.row.degree.slice(0,35)+'...' : props.row.degree }}
+          </q-td>
+        </template>
+      </q-table>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.user {
-  &__content {
-    display: flex;
+.title{
+  text-align: center;
+  font-size: 28px;
+  line-height: 44px;
+  &__unique{
+    text-align: center;
     font-weight: bold;
-    margin-top: 20px;
-  }
+    font-size: 20px;
+    line-height: 34px;
 
-  &__info {
-    margin-left: 20px;
-  }
-
-  &__img {
-    width: 200px;
-    height: 266px;
-    color: #c52343;
   }
 }
-
-@media screen and (max-width: 500px) {
-  .user {
-    &__content {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__info {
-      margin-top: 20px;
-    }
-  }
-}
-
 .lab {
   padding: 20px;
 

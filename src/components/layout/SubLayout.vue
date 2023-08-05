@@ -135,42 +135,42 @@ const menu = computed(() => {
       options:[
         {
           title:t('subLayout.scientific_activity'),
-          path:'#',
+          path:'scientific-activity',
           options:[]
         },
         {
           title:t('subLayout.scientific_council'),
-          path:'#',
+          path:'scientific-council',
           options:[]
         },
         {
           title:t('subLayout.scientific_seminars'),
-          path:'#',
+          path:'scientific-seminars',
           options:[]
         },
         {
           title:t('subLayout.scientific_grants'),
-          path:'#',
+          path:"scientific-grants",
           options:[]
         },
         {
           title:t('subLayout.scientific_cooperation'),
-          path:'#',
+          path:'scientific-cooperation',
           options:[]
         },
         {
           title:t('subLayout.young_scientists'),
-          path:'#',
+          path:'young-scientists',
           options:[]
         },
         {
-          title:t('subLayout.training_students'),
-          path:'#',
+          title:t('subLayout.trade_union'),
+          path:'institute-trade-union',
           options:[]
         },
         {
           title:t('subLayout.photo'),
-          path:'#',
+          path:'all-photos',
           options:[]
         }
       ]
@@ -181,17 +181,17 @@ const menu = computed(() => {
       options: [
         {
           title:t('subLayout.scientific_degrees'),
-          path:'#',
+          path:'scientific-degrees',
           options: []
         },
         {
-          title:t('subLayout.special_seminars'),
-          path:'#',
+          title:t('subLayout.scientific_seminars'),
+          path:'seminar-scientific',
           options: []
         },
         {
           title:t('subLayout.dissertations'),
-          path:'#',
+          path:'thesis-dissertations',
           options: []
         },
 
@@ -224,7 +224,7 @@ const menu = computed(() => {
       options: [
         {
           title:t('subLayout.journal_about'),
-          path:'#',
+          path:'about-journal',
           options: []
         },
         {
@@ -260,7 +260,8 @@ function langChange(item) {
 function newRoute(check,item) {
   if(!check || item.path!=='#'){
     store.newRoute(item.path)
-    router.push(item.path)
+    console.log('router',item.path)
+    router.push({path:`/${item.path}`})
   }
 }
 onMounted(() => {

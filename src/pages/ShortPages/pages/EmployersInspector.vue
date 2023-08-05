@@ -1,9 +1,9 @@
 <script setup>
 import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
-const layout = useLayoutStore()
+const layoutStore = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 const pagesList = {
@@ -44,8 +44,12 @@ console.log('roe')
 const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
-  layout.newRoute(route.path.split('/')[1])
+  layoutStore.newRoute(route.path.split('/')[1])
+  layoutStore.pageLoader = false;
 });
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 </script>
 
 <template>

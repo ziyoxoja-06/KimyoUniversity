@@ -1,3 +1,24 @@
+<script setup>
+import {useI18n} from 'vue-i18n';
+
+const { t , locale} = useI18n()
+
+const footer = [
+  {
+    header: 'About Us', items: [
+      {header: 'Company', route: '/about-us/company'},
+      {header: 'Careers',},
+      {header: 'Press',},
+    ]
+  },
+  {header: 'Useful Links',},
+  {header: 'Services',},
+  {header: 'Contact',},
+];
+
+
+</script>
+
 <template>
 
   <div class="footer ">
@@ -5,9 +26,8 @@
       <div class="col-md-6">
         <div class="footer__logo flex items-center ">
           <img width="130" height="130" alt="image" src="../../static/img/header_logo.png"/>
-          <div class="footer__title">
-            O‘zbekiston Respublikasi <br/> Fanlar akademiyasi <br/>
-            Umumiy va noorganik <br/> kimyo instituti
+          <div class="footer__title" v-html="t('footer.baseTitle')">
+
           </div>
         </div>
         <div class="footer__address q-mt-lg">
@@ -17,11 +37,11 @@
           </p>
           <p>
             <q-icon class="q-mr-sm q-ml-md" name="fa-solid fa-phone"/>
-            Yagona aloqa raqami +998712000036
+            Yagona aloqa raqami: +998712000036
           </p>
           <p>
             <q-icon class="q-mr-sm q-ml-md" name="fa-solid fa-phone"/>
-            Ishonch telefoni +998712335623
+            Ishonch telefoni: +998712335623
           </p>
           <p>
             <q-icon class="q-mr-sm q-ml-md" name="fas fa-at"/>
@@ -60,28 +80,11 @@
     </div>
     <q-separator class=" q-ml-md q-mt-lg" size="2px"/>
     <div class="flex justify-center q-pt-lg">
-      Copyright © Academy of Sciences of the Republic of Uzbekistan, State Unitary Enterprise
-      "Center for Information Technology Development" - 2021
+      Copyright © Everywhere Group - {{new Date().getFullYear()}}
     </div>
   </div>
 </template>
 
-<script setup>
-
-
-const footer = [
-  {
-    header: 'About Us', items: [
-      {header: 'Company', route: '/about-us/company'},
-      {header: 'Careers',},
-      {header: 'Press',},
-    ]
-  },
-  {header: 'Useful Links',},
-  {header: 'Services',},
-  {header: 'Contact',},
-];
-</script>
 
 <style lang="scss" scoped>
 .footer {

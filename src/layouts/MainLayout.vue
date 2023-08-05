@@ -6,9 +6,9 @@ import {onMounted, ref,computed, onUnmounted} from "vue";
 import {useQuasar} from "quasar";
 import {useI18n} from 'vue-i18n';
 
-const {locale} = useI18n()
+const { t , locale} = useI18n()
 const $q = useQuasar();
-const store = useLayoutStore()
+const layoutStore = useLayoutStore()
 
 const model = ref('')
 const options = [{label: 'Uz', value: 'uz-UZ'}, {label: 'Ru', value: 'ru-RU'}, {label: 'En', value: 'en-US'},]
@@ -31,6 +31,7 @@ const updateScreenSize = () => {
 const scrollTop = ref(false)
 const floating = ref(false)
 onMounted(() => {
+  layoutStore.baseLoader =false
   model.value = locale.value.split('-')[0]
   window.addEventListener('resize', updateScreenSize);
   $q.dark.set(localStorage.getItem("darkMode") === "true")
@@ -41,7 +42,7 @@ function scrolling() {
 }
 function change (){
   console.log('change')
-  store.change()
+  layoutStore.change()
 }
 </script>
 <template>
@@ -102,9 +103,7 @@ function change (){
           </div>
           <div class="nav__main__text flex items-center cursor-pointer"  @click="$router.push('/')"
                :style="scrollTop?screenSize.width<1100?'color:white; margin-left: 10px':'color:white':'color:#fff'">
-            UMUMIY VA
-            NOORGANIK
-            KIMYO INSTITUTI
+            {{t('mainLayout.title')}}
           </div>
         </div>
         <div class="flex justify-end" style="min-width:50%; color: #fff">
@@ -116,22 +115,28 @@ function change (){
 
 
     <q-page-container>
-      <router-view/>
-      <q-fab
-        v-if="scrollTop&& screenSize.width>1034"
-        v-model="floating"
-        label-position="left"
-        color="blue"
-        icon="menu"
-        padding="5px"
-        direction="up"
-        style="position: fixed; top: 85%;right: 50px;"
-      >
-        <q-fab-action color="primary" @click="darkMode"  :icon="$q.dark.mode?'light_mode':'dark_mode'" />
-        <q-fab direction="up" color="primary" hide-icon padding="7px" @click="floating.value = false" :label="model">
-          <q-fab-action v-for="(item,i) in options" color="purple" :key="i" @click="langChange(item)" :label="item.label"/>
+      <div v-if="layoutStore.loader" :class="layoutStore.loader?'loader':''">
+        <q-spinner-ios color="red" size="40px" />
+      </div>
+      <div :hidden="layoutStore.loader">
+        <router-view/>
+        <q-fab
+          v-if="scrollTop&& screenSize.width>1034"
+          v-model="floating"
+          label-position="left"
+          color="blue"
+          icon="menu"
+          padding="5px"
+          direction="up"
+          style="position: fixed; top: 85%;right: 50px;"
+        >
+          <q-fab-action color="primary" @click="darkMode"  :icon="$q.dark.mode?'light_mode':'dark_mode'" />
+          <q-fab direction="up" color="primary" hide-icon padding="7px" @click="floating.value = false" :label="model">
+            <q-fab-action v-for="(item,i) in options" color="purple" :key="i" @click="langChange(item)" :label="item.label"/>
+          </q-fab>
         </q-fab>
-      </q-fab>
+      </div>
+
     </q-page-container>
     <FooterLayout style="z-index: 2" />
   </q-layout>
@@ -140,6 +145,14 @@ function change (){
 
 <style lang="scss" scoped>
 $bace-color: #363636;
+.loader {
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 .nav{
   &__contact{
     background-color: $bace-color;

@@ -1,6 +1,6 @@
 <script setup>
 import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
 const layout = useLayoutStore()
@@ -15,12 +15,12 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: '../static/img/Manage-one.jpg'
+        img: 'src/static/img/Manage-one.jpg'
       },
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: '../static/img/Manage-one.jpg'
+        img: 'src/static/img/Manage-one.jpg'
       }
     ]
   },
@@ -32,7 +32,7 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: '../static/img/Manage-one.jpg'
+        img: 'src/static/img/Manage-one.jpg'
       }
     ]
   },
@@ -45,7 +45,24 @@ const pagesList = {
       {
         name: 'Head of AES - Makhamadiyev Kh.B',
         role: '',
-        img: '/src/static/img/Manage-one.jpg'
+        img: 'src/static/img/Manage-one.jpg'
+      }
+    ]
+  },
+  "institute-trade-union": {
+    title: 'Institute Trade Union',
+    description: '',
+    phone:'(+998 90) 933 52 56',
+    user: [
+      {
+        name: 'Yuldashev А.Т.',
+        role: 'deputy. chairman',
+        img: 'src/static/img/Manage-one.jpg'
+      },
+      {
+        name: 'Khasanova Y.',
+        role: 'secretary',
+        img: 'src/static/img/Manage-one.jpg'
       }
     ]
   },
@@ -57,7 +74,11 @@ const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
   layout.newRoute(route.path.split('/')[1])
+  layout.pageLoader = false;
 });
+onUnmounted(()=>{
+  layout.pageLoader = true
+})
 </script>
 
 <template>
@@ -65,7 +86,7 @@ onMounted(() => {
       <q-img width="220px"  :src="pagesList[layout.shortRout]?.user[0].img"/>
       <div class="q-pl-lg">
         <p class="text-h5 text-weight-bold q-pl-xl">{{ pagesList[layout.shortRout]?.title }}</p>
-        <p><b>Main tasks:</b> {{ pagesList[layout.shortRout]?.description }}</p>
+        <p v-if="pagesList[layout.shortRout]?.description!==''"><b>Main tasks:</b> {{ pagesList[layout.shortRout]?.description }}</p>
         <div class="user__info">
             <span v-for="item in pagesList[layout.shortRout]?.user">
               <span class="text-weight-bold">{{ item.name }}</span>

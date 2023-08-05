@@ -1,6 +1,13 @@
 <script setup>
-import {ref} from "vue";
-
+import {onMounted, onUnmounted, ref} from "vue";
+import {useLayoutStore} from "../../../stores/layout";
+const layoutStore = useLayoutStore();
+onMounted(() => {
+  layoutStore.pageLoader = false
+})
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 const alert__one = ref(false);
 const alert__two = ref(false);
 
@@ -14,7 +21,7 @@ function openNewTab(link) {
     <p class="text-h5 text-center">Managment</p>
 
     <div class="sub_content q-mt-xl">
-      <q-img alt="img" class="img q-mr-md" src="../../../static/img/Manage-one.jpg"
+      <q-img alt="img" class="img q-mr-md" src="src/static/img/Manage-one.jpg"
              title="Ibragimov Aziz Bakhtiyarovich - Director of the Institute" width="200px"/>
       <div class=" base q-mt-lg q-ml-xl ">
         <p class="text-h4 title">Ibragimov Aziz Bakhtiyarovich - Director of the Institute</p>

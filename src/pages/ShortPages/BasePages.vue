@@ -9,6 +9,17 @@ import Information from "./pages/Information.vue";
 import UniqueProject from "./pages/UniqueProject.vue";
 import EmployersInspector from "./pages/EmployersInspector.vue";
 import Doctorate from "./pages/Doctorate.vue";
+import ScintificActivity from "./pages/ScintificActivity.vue";
+import ScintificCouncil from "./pages/ScientificCouncil.vue";
+import ScientificSeminars from "./pages/ScientificSeminars.vue";
+import ScientificGrants from "./pages/ScientificGrants.vue";
+import ScientificCooperation from "./pages/ScientificCooperation.vue";
+import YoungScientists from "./pages/YoungScientists.vue";
+import ScientificDegrees from "./pages/ScientificDegrees.vue";
+import SeminarScientific from "./pages/SeminarScientific.vue";
+import ThesisDissertation from "./pages/ThesisDissertations.vue";
+import AboutJournal from "./pages/AboutJournal.vue";
+
 import {useLayoutStore} from "../../stores/layout";
 
 const layout = useLayoutStore()
@@ -35,9 +46,18 @@ const pagesList = ref({
   "course-dsc": Doctorate,
   "course-phd": Doctorate,
   "course-ind": Doctorate,
-
+  "scientific-activity": ScintificActivity,
+  "institute-trade-union": Information,
+  "scientific-council": ScintificCouncil,
+  "scientific-seminars": ScientificSeminars,
+  "scientific-grants": ScientificGrants,
+  "scientific-cooperation": ScientificCooperation,
+  "young-scientists": YoungScientists,
+  "scientific-degrees": ScientificDegrees,
+  "seminar-scientific": SeminarScientific,
+  "thesis-dissertations": ThesisDissertation,
+  "about-journal": AboutJournal,
 })
-
 onMounted(()=> {
   layout.newRoute(route.path.split('/')[1])
 })
@@ -54,7 +74,7 @@ onMounted(()=> {
 <style scoped lang="scss">
 .container{
   width: 90%;
-  min-height: 80vh;
+  height: fit-content;
   margin: 20px auto 40px auto;
   box-shadow: 0 0 10px 10px rgba(131, 131, 131, 0.2);
   padding: 20px;

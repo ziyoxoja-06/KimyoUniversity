@@ -1,4 +1,13 @@
 <script setup>
+import {onUnmounted, onMounted, ref} from "vue";
+import {useLayoutStore} from "../../../stores/layout";
+const layoutStore = useLayoutStore();
+onMounted(() => {
+  layoutStore.pageLoader = false
+})
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 const data = [
   { title: 'Naumov Sergey Nikolaevich (1874-1933), Doctor of Chemical Sciences, Professor, Organic Chemistry.',
     date: '1933'

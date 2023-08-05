@@ -2,12 +2,20 @@
 import BaceCard from '../components/BaceCard.vue'
 import {cardDatas} from "./HomePage/module";
 import {useRouter, useRoute} from "vue-router";
+import {onMounted, onUnmounted} from "vue";
+import {useLayoutStore} from "../stores/layout";
 
+const layoutStore = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 
 console.log(route)
-
+onMounted(()=>{
+  layoutStore.pageLoader = false
+})
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 </script>
 
 <template>

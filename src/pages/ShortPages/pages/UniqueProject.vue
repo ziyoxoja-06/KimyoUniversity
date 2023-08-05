@@ -1,4 +1,13 @@
 <script setup>
+import {onMounted, onUnmounted, ref} from "vue";
+import {useLayoutStore} from "../../../stores/layout";
+const layoutStore = useLayoutStore();
+onMounted(() => {
+  layoutStore.pageLoader = false
+})
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 const imgs =['/src/static/img/unique-project/one.jfif','/src/static/img/unique-project/two.jfif']
 </script>
 

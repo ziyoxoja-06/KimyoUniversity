@@ -1,14 +1,20 @@
 <script setup>
 import {useRouter, useRoute} from "vue-router";
-import {ref, onBeforeMount} from "vue";
+import {ref, onBeforeMount, onUnmounted} from "vue";
 import {cardDatas} from "./HomePage/module";
+import {useLayoutStore} from "../stores/layout";
 
+const layoutStore = useLayoutStore();
 const router = useRouter()
 const route = useRoute()
 const {id} = route.params
 const data = ref(null)
 onBeforeMount(()=>{
   data.value = cardDatas.find(item => item.id === parseInt(id))
+  layoutStore.pageLoader = false
+})
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
 })
 
 </script>
@@ -20,7 +26,7 @@ onBeforeMount(()=>{
       <p class="text-center text-weight-bold text-h6">{{data.date.split('/').join('-')}}</p>
     </div>
 
-    <p class="text-h4">{{data.description}}</p>
+    <p class="text-h5">{{data.description}}</p>
   </div>
 </template>
 

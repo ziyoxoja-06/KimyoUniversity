@@ -28,6 +28,18 @@ const routes: RouteRecordRaw[] = [
       { path: 'course-dsc',  component: () => import('pages/ShortPages/BasePages.vue') },
       { path: 'course-phd',  component: () => import('pages/ShortPages/BasePages.vue') },
       { path: 'course-ind',  component: () => import('pages/ShortPages/BasePages.vue') },
+      { path: 'scientific-activity',  component: () => import('pages/ShortPages/BasePages.vue') },
+      { path: 'institute-trade-union',  component: () => import('pages/ShortPages/BasePages.vue') },
+      {path: 'scientific-council', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'scientific-seminars', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'scientific-grants', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'scientific-cooperation', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'young-scientists', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'scientific-degrees', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'seminar-scientific', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'thesis-dissertations', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'about-journal', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'all-photos', component: () => import('pages/AllPhotos.vue')},
     ],
   },
 
@@ -39,4 +51,5 @@ const routes: RouteRecordRaw[] = [
   },
 ];
 
-export default routes;
+// @ts-ignore
+export default routes

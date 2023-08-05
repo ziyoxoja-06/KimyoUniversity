@@ -1,9 +1,9 @@
 <script setup>
 import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
+import {onUnmounted, onMounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
-const layout = useLayoutStore()
+const layoutStore = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 const pagesList = {
@@ -81,17 +81,21 @@ const updateScreenSize = () => {
   screenSize.value = {width: window.innerWidth, height: window.innerHeight};
 };
 const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
+onUnmounted(()=>{
+  layoutStore.pageLoader = true
+})
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
-  layout.newRoute(route.path.split('/')[1])
+  layoutStore.newRoute(route.path.split('/')[1])
+  layoutStore.pageLoader = false
 });
 </script>
 
 <template>
   <div class="user">
-    <p class="text-h5 text-center text-weight-bold">{{pagesList[layout.shortRout]?.title}}</p>
-    <p>{{pagesList[layout.shortRout]?.description}}</p>
-    <p v-for="page in pagesList[layout.shortRout]?.courses" :key="page.title">{{page?.title}}</p>
+    <p class="text-h5 text-center text-weight-bold">{{pagesList[layoutStore.shortRout]?.title}}</p>
+    <p>{{pagesList[layoutStore.shortRout]?.description}}</p>
+    <p v-for="page in pagesList[layoutStore.shortRout]?.courses" :key="page.title">{{page?.title}}</p>
   </div>
 </template>
 

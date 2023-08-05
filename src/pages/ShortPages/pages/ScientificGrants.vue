@@ -3,7 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {computed, onMounted, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
-const layoutStore = useLayoutStore()
+const layout = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 const pagesList = {
@@ -130,51 +130,35 @@ const pagesList = {
     }
   }
 }
-const pageHtml = computed(()=> {
-  return pagesList[layoutStore.shortRout]
+const pageHtml = computed(() => {
+  return pagesList[layout.shortRout]
 })
-const columns = [
-  {name: 'id', label: '№', field: 'id', align: 'left', sortable: true, style: 'width: 20px'},
-  {
-    name: 'name',
-    required: true,
-    label: 'Name',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true,
-    style: 'width: 100px'
-  },
-  {name: 'degree', align: 'left', label: 'Degree', field: 'degree', sortable: true},
-  {name: 'position', label: 'Position', field: 'position', align: 'left', sortable: true},
-  {name: 'contact', label: 'Contact', align: 'left', field: 'contact'},
-  {name: 'email', label: 'Email', align: 'left', field: 'email'},
-]
+
 
 const rows = [
   {
     id: 1,
-    name: 'Mardonov Botir Mardonovich',
-    degree: 'Doctor of Physical and Mathematical Sciences, Professor',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'batsam@list.ru',
+    title: 'Fundamental grants (years of realization 2017-2020)',
+    description: [
+      "FA-F-4-006 \"Seismodynamics of plane and spatially located underground pipeline systems at an arbitrary angle of the effect attack\", Academician of the Academy of Sciences of the Republic of Uzbekistan Rashidov Tursunbai Rashidovich",
+      "FA-F-4-003 \"Development of the theory of strength and seismic resistance of structurally unstable soil medium under strain and wetting\", DSc. Khusanov Bakhtiyar Ergashbayevich"
+    ]
   },
   {
     id: 2,
-    name: 'Xojmetov Gʼoibnazar Xadievich',
-    degree: 'Doctor of Technical Sciences, Professor',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'instmech@academy.uz',
+    title: 'Innovation ( years of realization 2018-2019)',
+    description: [
+      "FA-F-4-006 \"Seismodynamics of plane and spatially located underground pipeline systems at an arbitrary angle of the effect attack\", Academician of the Academy of Sciences of the Republic of Uzbekistan Rashidov Tursunbai Rashidovich",
+      "FA-F-4-003 \"Development of the theory of strength and seismic resistance of structurally unstable soil medium under strain and wetting\", DSc. Khusanov Bakhtiyar Ergashbayevich"
+    ]
   },
   {
     id: 3,
-    name: 'Bekmirzaev Diyorbek Аbdugapporovich',
-    degree: 'Doctor of Technical Sciences (DSc)',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'diyorbek_84@mail.ru',
+    title: 'Grants for young scientists ( years of realization 2018-2019)',
+    description: [
+      "FA-F-4-006 \"Seismodynamics of plane and spatially located underground pipeline systems at an arbitrary angle of the effect attack\", Academician of the Academy of Sciences of the Republic of Uzbekistan Rashidov Tursunbai Rashidovich",
+      "FA-F-4-003 \"Development of the theory of strength and seismic resistance of structurally unstable soil medium under strain and wetting\", DSc. Khusanov Bakhtiyar Ergashbayevich"
+    ]
   },
 ]
 
@@ -184,94 +168,87 @@ const updateScreenSize = () => {
 };
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
-  layoutStore.newRoute(route.path.split('/')[1])
-  layoutStore.pageLoader = false
+  layout.newRoute(route.path.split('/')[1])
+  layout.pageLoader = false
   pageHtml.value = pagesList[route.path.split('/')[1] ? route.path.split('/')[1] : 'not-found']
 });
 onUnmounted(()=>{
-  layoutStore.pageLoader = true
+  layout.pageLoader = true
 })
 </script>
 
 <template>
   <div class="lab">
-    <p v-if="pageHtml?.title==='No data'" class="text-h4 text-weight-bold text-center">{{pageHtml?.title}}</p>
-    <div v-else>
-      <p class="text-h5 q-mt-lg text-center text-weight-bold">{{ pageHtml?.title }}</p>
-      <p v-for="(item,i) in pagesList[layoutStore.shortRout]?.description.split('\n')" :key="i" class="lab__description">
-        <span v-if="i===0" class="text-weight-bold">Main directions of the laboratory: </span>
-        {{ item }}<br>
-      </p>
-      <div class="user">
-        <p class=" q-mt-xl text-center text-weight-bold">Head of laboratory</p>
-        <div class="user__content">
-          <img :src="pagesList[layoutStore.shortRout]?.teacher.img" alt="" class="user__img">
-          <div class="user__info">
-            <p class="">{{ pagesList[layoutStore.shortRout]?.teacher.full_name }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.degree }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.number }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.email }}</p>
-          </div>
+    <p class="text-center text-h5 text-weight-bold">Scientific grants carried out within the framework of the State
+      Scientific-Technical Programs</p>
+    <p class="unique__title">Academy of Sciences of the Republic of Uzbekistan Scientific grants carried out within the
+      framework of the State Scientific-Technical Programs</p>
+    <div class=" table q-pt-sm">
+      <div class="table__header bg-light-green-5">
+        <div class="table__index">
+          №
+        </div>
+        <div class="table__subdescription--center">
+          Names of scientific-technical grants and innovation developments, heads of grants
         </div>
       </div>
-      <div class="table">
-        <q-table
-          :columns="columns" :filter="filter"
-          :grid="screenSize.width < 1250"
-          :hide-header="screenSize.width < 750"
-          :rows="rows"
-          bordered
-          class="q-mt-md"
-          flat
-          row-key="name"
-        >
-          <template v-slot:top-right>
-            <q-input v-model="filter" borderless debounce="300" dense placeholder="Search">
-              <template v-slot:append>
-                <q-icon name="search"/>
-              </template>
-            </q-input>
-          </template>
-          <template #body-cell-degree="props">
-            <q-td :props="props" key="degree">
-              {{ props.row.degree.length>35 ? props.row.degree.slice(0,35)+'...' : props.row.degree }}
-            </q-td>
-          </template>
-        </q-table>
+      <div class="table__row" v-for="item in rows">
+        <div class="table__title ">
+          {{item.title}}
+        </div>
+          <div class="table__description" v-for="(description,index) in item.description">
+            <div class="table__index">
+              {{index+1}}
+            </div>
+            <div class="table__subtitle">{{description}}</div>
+          </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.user {
-  &__content {
-    display: flex;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-
-  &__info {
-    margin-left: 20px;
-  }
-
-  &__img {
-    width: 200px;
-    height: 266px;
-    color: #c52343;
-  }
+.unique__title {
+  font-size: 20px;
+  line-height: 44px;
+  text-align: center;
 }
 
-@media screen and (max-width: 500px) {
-  .user {
-    &__content {
-      flex-direction: column;
-      align-items: center;
-    }
+.table {
+  width: 100%;
+  font-size: 16px;
+  &__row {
+    width: 100%;
+  }
 
-    &__info {
-      margin-top: 20px;
-    }
+  &__index{
+    width: fit-content;
+    padding: 0 20px;
+  }
+  &__header{
+    display: flex;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+  &__title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: 20px 0;
+    border-top: 2px solid grey;
+
+  }
+
+  &__description{
+    display: flex;
+    padding: 20px 0;
+    border-top: 2px solid grey;
+  }
+
+  &__subdescription--center{
+    width: 100%;
+    text-align: center;
   }
 }
 

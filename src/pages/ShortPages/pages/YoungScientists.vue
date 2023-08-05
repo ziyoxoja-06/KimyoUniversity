@@ -3,7 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {computed, onMounted, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
-const layoutStore = useLayoutStore()
+const layout = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
 const pagesList = {
@@ -131,7 +131,7 @@ const pagesList = {
   }
 }
 const pageHtml = computed(()=> {
-  return pagesList[layoutStore.shortRout]
+  return pagesList[layout.shortRout]
 })
 const columns = [
   {name: 'id', label: '№', field: 'id', align: 'left', sortable: true, style: 'width: 20px'},
@@ -184,33 +184,28 @@ const updateScreenSize = () => {
 };
 onMounted(() => {
   window.addEventListener('resize', updateScreenSize);
-  layoutStore.newRoute(route.path.split('/')[1])
-  layoutStore.pageLoader = false
+  layout.newRoute(route.path.split('/')[1])
+  layout.pageLoader = false
   pageHtml.value = pagesList[route.path.split('/')[1] ? route.path.split('/')[1] : 'not-found']
 });
 onUnmounted(()=>{
-  layoutStore.pageLoader = true
+  layout.pageLoader = true
 })
 </script>
 
 <template>
   <div class="lab">
-    <p v-if="pageHtml?.title==='No data'" class="text-h4 text-weight-bold text-center">{{pageHtml?.title}}</p>
-    <div v-else>
-      <p class="text-h5 q-mt-lg text-center text-weight-bold">{{ pageHtml?.title }}</p>
-      <p v-for="(item,i) in pagesList[layoutStore.shortRout]?.description.split('\n')" :key="i" class="lab__description">
-        <span v-if="i===0" class="text-weight-bold">Main directions of the laboratory: </span>
-        {{ item }}<br>
-      </p>
+    <p  class="text-h4 text-weight-bold text-center">Council of young scientists</p>
+
       <div class="user">
-        <p class=" q-mt-xl text-center text-weight-bold">Head of laboratory</p>
         <div class="user__content">
-          <img :src="pagesList[layoutStore.shortRout]?.teacher.img" alt="" class="user__img">
+          <img src="src/static/img/Manage-one.jpg" alt="Urinov Aziz Pardayevich" class="user__img">
           <div class="user__info">
-            <p class="">{{ pagesList[layoutStore.shortRout]?.teacher.full_name }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.degree }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.number }}</p>
-            <p>{{ pagesList[layoutStore.shortRout]?.teacher.email }}</p>
+            <p class="text-weight-bold text-h6">Chairman of the Council of Young Scientists</p>
+            <p class="">Urinov Aziz Pardayevich</p>
+            <p>Basic doctoral student</p>
+            <p>(71) 262 24 23</p>
+            <p>PhD.mr.Urinov@mail.ru</p>
           </div>
         </div>
       </div>
@@ -240,11 +235,11 @@ onUnmounted(()=>{
         </q-table>
       </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
 .user {
+  padding: 20px 0;
   &__content {
     display: flex;
     font-weight: bold;
