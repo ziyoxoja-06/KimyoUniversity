@@ -1,6 +1,6 @@
 <script setup>
 import {useRoute, useRouter} from "vue-router";
-import {computed, onMounted, onUnmounted, ref} from "vue";
+import {computed, onBeforeMount, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
 const layoutStore = useLayoutStore()
@@ -182,7 +182,7 @@ const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
 const updateScreenSize = () => {
   screenSize.value = {width: window.innerWidth, height: window.innerHeight};
 };
-onMounted(() => {
+onBeforeMount(() => {
   window.addEventListener('resize', updateScreenSize);
   layoutStore.newRoute(route.path.split('/')[1])
   layoutStore.pageLoader = false

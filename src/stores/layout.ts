@@ -18,9 +18,8 @@ export const useLayoutStore = defineStore('layout', {
       console.log('change-2')
       this.shortRout = item
       console.log('change-3')
-      this.lodingPage()
 },
-    lodingPage(){
+    pageLoaderChanger(){
       this.pageLoader = !this.pageLoader
       console.log(this.pageLoader)
     }

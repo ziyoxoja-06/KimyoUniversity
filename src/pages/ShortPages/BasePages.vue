@@ -1,10 +1,10 @@
 <script setup>
 import {useRouter, useRoute} from "vue-router";
-import {ref, onBeforeMount, watch, onMounted, computed} from "vue";
+import {ref, onMounted, computed} from "vue";
 import Structure from "./pages/Structure.vue";
 import Managment from "./pages/Managment.vue";
 import Directors from "./pages/Directors.vue";
-import Labaratories from "./pages/Labaratories.vue";
+import Labaratories from "./pages/LabaratoriesTypePages.vue";
 import Information from "./pages/Information.vue";
 import UniqueProject from "./pages/UniqueProject.vue";
 import EmployersInspector from "./pages/EmployersInspector.vue";
@@ -59,6 +59,7 @@ const pagesList = ref({
   "about-journal": AboutJournal,
 })
 onMounted(()=> {
+  console.log('base')
   layout.newRoute(route.path.split('/')[1])
 })
 

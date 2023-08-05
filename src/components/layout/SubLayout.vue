@@ -260,7 +260,7 @@ function langChange(item) {
 function newRoute(check,item) {
   if(!check || item.path!=='#'){
     store.newRoute(item.path)
-    console.log('router',item.path)
+    console.log('router',item.path,router)
     router.push({path:`/${item.path}`})
   }
 }
