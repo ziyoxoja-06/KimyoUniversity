@@ -6,18 +6,18 @@ import PartnerScroll from "src/components/PartnersScroll.vue";
 import AboutUniversity from 'src/components/AboutUniversity.vue'
 import UsefulLink from 'src/components/UsefulLink.vue'
 import {allNews, images} from "./module";
-
-console.log(['cardDatas'],'cardDatas');
 import {useLayoutStore} from "../../stores/layout";
 import {useI18n} from 'vue-i18n';
 
-const { t , locale} = useI18n()
+const { t } = useI18n()
 const layoutStore = useLayoutStore()
 const preferred = ref('news')
 const options = computed(() => {
-  return {
-    'news': t('mainLayout.news'),
-  }
+  return [
+    {label: 'News', value: 'uz-UZ'},
+    {label: 'Events', value: 'uz-UZ'},
+    {label: 'Ads', value: 'uz-UZ'},
+  ]
 })
 const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
 const updateScreenSize = () => {
@@ -54,7 +54,7 @@ onBeforeUnmount(()=>{
         <div>
           <q-option-group
             v-model="preferred"
-            :options="options"
+            :options=" options"
             :style="screenSize.width < 600?'font-size: 50%;':'font-size: 70%;'"
             color="primary"
             inline

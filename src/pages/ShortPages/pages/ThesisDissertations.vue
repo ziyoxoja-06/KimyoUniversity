@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, onUnmounted, ref} from "vue";
+import {onMounted, onUnmounted} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 const layoutStore = useLayoutStore();
 onMounted(() => {

@@ -2,14 +2,14 @@
 import SubLayout from "src/components/layout/SubLayout.vue";
 import FooterLayout from "src/components/layout/FooterLayout.vue";
 import {useLayoutStore} from "../stores/layout.ts";
-import {onMounted, ref,computed, onUnmounted} from "vue";
+import {onMounted, ref} from "vue";
 import {useQuasar} from "quasar";
 import {useI18n} from 'vue-i18n';
 
 const { t , locale} = useI18n()
 const $q = useQuasar();
 const layoutStore = useLayoutStore()
-
+const text = ref('')
 const model = ref('')
 const options = [{label: 'Uz', value: 'uz-UZ'}, {label: 'Ru', value: 'ru-RU'}, {label: 'En', value: 'en-US'},]
 const screenSize = ref({ width: window.innerWidth, height: window.innerHeight });
@@ -79,7 +79,7 @@ function change (){
             </q-menu>
           </div>
           <div class="btn__animation cursor-pointer" @click="darkMode">
-            <q-icon :name="$q.dark.mode?'fas fa-sun':'fas fa-moon'" size="16px" style=""/>
+            <q-icon :name="$q.dark.mode?'fas fa-sun':'fas fa-moon'" size="16px"/>
           </div>
           <!--          <div class="btn__animation cursor-pointer"  @click="darkMode" >-->
           <!--            <svg style="color: rgb(98, 98, 98);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  width="20" height="20"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4h4v4h-4zm0 12h4v4h-4zm-7 0h4v4H3zm14 0h4v4h-4zm-5-8v4m0 4v-4m0 0h5a2 2 0 0 1 2 2v2m-7-4H7a2 2 0 0 0-2 2v2" fill="#626262"></path></svg>-->
@@ -115,10 +115,10 @@ function change (){
 
 
     <q-page-container>
-      <div v-if="layoutStore.loader" :class="layoutStore.loader?'loader':''">
+      <div v-if="layoutStore.pageLoader" :class="layoutStore.pageLoader?'loader':''">
         <q-spinner-ios color="red" size="40px" />
       </div>
-      <div :hidden="layoutStore.loader">
+      <div :hidden="layoutStore.pageLoader">
         <router-view/>
         <q-fab
           v-if="scrollTop&& screenSize.width>1034"

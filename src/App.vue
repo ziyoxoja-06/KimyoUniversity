@@ -13,6 +13,5 @@ const layoutStore = useLayoutStore();
 
 onMounted(() => {
   layoutStore.baseLoader = true
-  console.log('onMounted 1', layoutStore.loader)
 })
 </script>

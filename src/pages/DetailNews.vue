@@ -1,7 +1,7 @@
 <script setup>
 import {useRouter, useRoute} from "vue-router";
 import {ref, onBeforeMount, onUnmounted} from "vue";
-import {cardDatas} from "./HomePage/module";
+import {allNews} from "./HomePage/module";
 import {useLayoutStore} from "../stores/layout";
 
 const layoutStore = useLayoutStore();
@@ -10,7 +10,7 @@ const route = useRoute()
 const {id} = route.params
 const data = ref(null)
 onBeforeMount(()=>{
-  data.value = cardDatas.find(item => item.id === parseInt(id))
+  data.value = allNews.news.find(item => item.id === parseInt(id))
   layoutStore.pageLoader = false
 })
 onUnmounted(()=>{
