@@ -199,7 +199,7 @@ onUnmounted(()=>{
 
       <div class="user">
         <div class="user__content">
-          <img src="src/static/img/Manage-one.jpg" alt="Urinov Aziz Pardayevich" class="user__img">
+          <img src="src/assets/img/Manage-one.jpg" alt="Urinov Aziz Pardayevich" class="user__img">
           <div class="user__info">
             <p class="text-weight-bold text-h6">Chairman of the Council of Young Scientists</p>
             <p class="">Urinov Aziz Pardayevich</p>

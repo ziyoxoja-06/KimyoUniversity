@@ -19,7 +19,7 @@ const pagesList = {
       degree: 'Doctor of philosophy in technical sciences (PhD), Senior Research Fellow',
       number: "(71)262 78 34",
       email: "nematilla81@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "dynamic": {
@@ -33,7 +33,7 @@ const pagesList = {
       degree: 'Doctor of Physical and Mathematical Sciences, Senior Researcher',
       number: "(71)262 78 34",
       email: "umakhamatali@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "experimental": {
@@ -44,7 +44,7 @@ const pagesList = {
       degree: 'PhD in Technical Sciences, Senior Researcher',
       number: "(71) 262-73-55",
       email: "imssan@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "mechanic": {
@@ -58,7 +58,7 @@ const pagesList = {
       degree: 'Doctor of Engineering Sciences, Professor',
       number: "(71)262 24 22;      (71)268 13 48;",
       email: "khusanov@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "modeling": {
@@ -72,7 +72,7 @@ const pagesList = {
       degree: 'Doctor of Physical and Mathematical Sciences, Senior Researcher',
       number: "(71)262 78 34",
       email: "umakhamatali@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "theory": {
@@ -85,7 +85,7 @@ const pagesList = {
       degree: 'Candidate of Engineering Sciences, Senior Researcher',
       number: "(71)262 73 55",
       email: "aabdusalam54@gmail.com",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "prosses": {
@@ -102,7 +102,7 @@ const pagesList = {
       degree: 'Doctor of Technical Sciences, Professor',
       number: "(71) 262 71 32; (71) 214 43 22;",
       email: "rizayev52@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "gas": {
@@ -115,7 +115,7 @@ const pagesList = {
       degree: 'Doctor of Engineering Sciences',
       number: "(94)650 99 51",
       email: "malikov.z62@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   },
   "not-found": {
@@ -126,7 +126,7 @@ const pagesList = {
       degree: 'Doctor of Engineering Sciences',
       number: "(94)650 99 51",
       email: "malikov.z62@mail.ru",
-      img: 'src/static/img/Manage-one.jpg'
+      img: 'src/assets/img/Manage-one.jpg'
     }
   }
 }

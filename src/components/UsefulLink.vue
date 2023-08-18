@@ -6,32 +6,32 @@ const linkData = [
   {
     title: 'DTM',
     link: 'https://dtm.uz',
-    img_src: 'src/static/img/links/DTM.jpg'
+    img_src: 'src/assets/img/links/DTM.jpg'
   },
   {
     title: 'Edu.uz',
     link: 'https://edu.uz/uz',
-    img_src: 'src/static/img/links/eduuz.jpg'
+    img_src: 'src/assets/img/links/eduuz.jpg'
   },
   {
     title: 'Lex.uz',
     link: 'https://lex.uz/uz',
-    img_src: 'src/static/img/links/lexuz.jpg'
+    img_src: 'src/assets/img/links/lexuz.jpg'
   },
   {
     title: 'Yoshlar itfoqi',
     link: 'https://yi.uz',
-    img_src: 'src/static/img/links/yoshlar.jpg'
+    img_src: 'src/assets/img/links/yoshlar.jpg'
   },
   {
     title: 'Ziyonet.uz',
     link: 'https://ziyonet.uz',
-    img_src: 'src/static/img/links/ziyonet.jpg'
+    img_src: 'src/assets/img/links/ziyonet.jpg'
   },
   {
     title: 'Yagona ishonch portali',
     link: 'https://ziyonet.uz',
-    img_src: 'src/static/img/links/yagona.png'
+    img_src: 'src/assets/img/links/yagona.png'
   }
 ]
 </script>

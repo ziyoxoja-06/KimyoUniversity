@@ -139,7 +139,7 @@ function change() {
               "
               :alt="$t(`mainLayout.nameUniver`)"
               :title="$t('mainLayout.nameUniver')"
-              src="../static/img/header_logo.png"
+              src="../assets/img/header_logo.png"
               style="max-width: 50px; min-width: 50px"
               @click="$router.push('/')"
             />

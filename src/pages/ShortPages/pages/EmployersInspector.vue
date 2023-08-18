@@ -54,7 +54,7 @@ onUnmounted(()=>{
 
 <template>
   <div class="user">
-    <q-img width="340px"  src="/src/static/img/Manage-one.jpg"/>
+    <q-img width="340px"  src="/src/assets/img/Manage-one.jpg"/>
     <div class="q-pl-lg">
       <p class="text-h5 text-weight-bold q-pl-xl">Personnel inspector</p>
       <p>Senior Inspector of the Personnel Department is <b>Djarenova Matluba Maripovna. Phone:</b> (71) 262-76-89</p>

@@ -8,7 +8,7 @@ onMounted(() => {
 onUnmounted(()=>{
   layoutStore.pageLoader = true
 })
-const imgs =['/src/static/img/unique-project/one.jfif','/src/static/img/unique-project/two.jfif']
+const imgs =['/src/assets/img/unique-project/one.jfif','/src/assets/img/unique-project/two.jfif']
 </script>
 
 <template>

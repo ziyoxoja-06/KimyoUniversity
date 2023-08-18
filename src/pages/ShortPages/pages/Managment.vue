@@ -21,7 +21,7 @@ function openNewTab(link) {
     <p class="text-h5 text-center">Managment</p>
 
     <div class="sub_content q-mt-xl">
-      <q-img alt="img" class="img q-mr-md" src="src/static/img/Manage-one.jpg"
+      <q-img alt="img" class="img q-mr-md" src="src/assets/img/Manage-one.jpg"
              title="Ibragimov Aziz Bakhtiyarovich - Director of the Institute" width="200px"/>
       <div class=" base q-mt-lg q-ml-xl ">
         <p class="text-h4 title">Ibragimov Aziz Bakhtiyarovich - Director of the Institute</p>
@@ -73,7 +73,7 @@ function openNewTab(link) {
 
     </div>
     <div class="sub_content q-mt-xl">
-      <q-img alt="img" class="img q-mr-md" src="src/static/img/Manage-one.jpg"
+      <q-img alt="img" class="img q-mr-md" src="src/assets/img/Manage-one.jpg"
              title="Ibragimov Aziz Bakhtiyarovich - Director of the Institute" width="200px"/>
       <div class=" base q-mt-lg q-ml-xl ">
         <p class="text-h4 title">Isamuhamatov Asadbek Zafar o'g'li - AKT xodimi</p>

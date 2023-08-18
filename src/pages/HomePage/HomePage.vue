@@ -46,7 +46,7 @@ onBeforeUnmount(()=>{
     </section>
 <!--     Banner  -->
     <section class="banner">
-      <q-img src="src/static/img/banner.png"/>
+      <q-img src="src/assets/img/banner.png"/>
     </section>
 <!--     News  -->
     <section id="news" class="news">
@@ -76,7 +76,7 @@ onBeforeUnmount(()=>{
     </section>
 <!--   Tizer Video  -->
     <section class="tizer">
-      <video autoplay loop muted src="../../static/video/tizer.mp4" style=" width: 100%; border-radius: 10px"/>
+      <video autoplay loop muted src="../../assets/video/tizer.mp4" style=" width: 100%; border-radius: 10px"/>
     </section>
 <!--    Usefull Link -->
     <section id="links">

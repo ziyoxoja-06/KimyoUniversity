@@ -25,7 +25,7 @@ const footer = [
     <div class="row q-mb-xl">
       <div class="col-md-6">
         <div class="footer__logo flex items-center ">
-          <img width="130" height="130" alt="image" src="../../static/img/header_logo.png"/>
+          <img width="130" height="130" alt="image" src="../../assets/img/header_logo.png"/>
           <div class="footer__title" v-html="t('footer.baseTitle')">
 
           </div>

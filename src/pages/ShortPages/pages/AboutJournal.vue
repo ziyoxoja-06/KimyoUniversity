@@ -74,7 +74,7 @@ const data = [
   <p class="text-h5 text-weight-bold text-center">About journal</p>
 
   <q-img alt="img" class=" float-left q-mr-md q-mt-sm q-pa-md" height="200px"
-         src="src/static/img/tashkiliy_tuzilma.jpg" width="150px"/>
+         src="src/assets/img/tashkiliy_tuzilma.jpg" width="150px"/>
   <p v-for="item in data" class=""><span class="text-subtitle1 text-weight-bold">{{ item.title }}</span><br
     v-if="item.newLine"> <span v-for="text in item.description">" {{ text}}</span></p>
 

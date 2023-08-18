@@ -7,7 +7,7 @@ const { t , locale} = useI18n()
 <template>
   <div class="about__container">
     <h6 class="text-weight-bold text-h4 text-center" v-html="t('mainLayout.nameUniver')"></h6>
-    <q-img width="400px" height="50%" src='../static/img/carusel_1.jpg' class="about__img q-ml-none q-ml-md-lg" />
+    <q-img width="400px" height="50%" src='../assets/img/carusel_1.jpg' class="about__img q-ml-none q-ml-md-lg" />
     <p class="about__text text-weight-medium text-h6">
       {{t('home_page.about_description')}}
     </p>
