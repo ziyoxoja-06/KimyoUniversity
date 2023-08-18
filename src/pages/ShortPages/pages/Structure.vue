@@ -5,9 +5,7 @@ const layoutStore = useLayoutStore();
 onMounted(() => {
   layoutStore.pageLoader = false
 })
-onUnmounted(()=>{
-  layoutStore.pageLoader = true
-})
+
 </script>
 
 <template>

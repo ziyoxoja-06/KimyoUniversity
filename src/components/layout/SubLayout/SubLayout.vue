@@ -2,8 +2,8 @@
 import { computed, watch,ref ,onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import {useQuasar} from "quasar";
-import { options} from 'src/components/layout/Sublayout.ts';
-import {useLayoutStore} from "../../stores/layout";
+import { options} from 'src/components/layout/SubLayout/Sublayout.ts';
+import {useLayoutStore} from "../../../stores/layout";
 import {useRouter} from "vue-router";
 
 const router = useRouter();
