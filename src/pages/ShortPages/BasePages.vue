@@ -1,28 +1,28 @@
 <script setup>
 import {useRouter, useRoute} from "vue-router";
-import {ref, onMounted, computed, watch} from "vue";
-import Structure from "./pages/Structure.vue";
-import Managment from "./pages/Managment.vue";
-import Directors from "./pages/Directors.vue";
-import Labaratories from "./pages/LabaratoriesTypePages.vue";
-import Information from "./pages/Information.vue";
-import UniqueProject from "./pages/UniqueProject.vue";
-import EmployersInspector from "./pages/EmployersInspector.vue";
-import Doctorate from "./pages/Doctorate.vue";
-import ScintificActivity from "./pages/ScintificActivity.vue";
-import ScintificCouncil from "./pages/ScientificCouncil.vue";
-import ScientificSeminars from "./pages/ScientificSeminars.vue";
-import ScientificGrants from "./pages/ScientificGrants.vue";
-import ScientificCooperation from "./pages/ScientificCooperation.vue";
-import YoungScientists from "./pages/YoungScientists.vue";
-import ScientificDegrees from "./pages/ScientificDegrees.vue";
-import SeminarScientific from "./pages/SeminarScientific.vue";
-import ThesisDissertation from "./pages/ThesisDissertations.vue";
-import AboutJournal from "./pages/AboutJournal.vue";
-import ArchivePage from "./pages/ArchivePage.vue";
-import RulesWrite from "./pages/RulesWrite.vue";
-
+import {ref, onMounted, computed, defineAsyncComponent} from "vue";
 import {useLayoutStore} from "../../stores/layout";
+import ArchivePage from "./pages/ArchivePage.vue";
+
+const Structure = defineAsyncComponent(() => import("./pages/Structure.vue"));
+const Managment = defineAsyncComponent(() => import("./pages/Managment.vue"));
+const Directors = defineAsyncComponent(() => import("./pages/Directors.vue"));
+const Labaratories = defineAsyncComponent(() => import("./pages/LabaratoriesTypePages.vue"));
+const Information = defineAsyncComponent(() => import("./pages/Information.vue"));
+const UniqueProject = defineAsyncComponent(() => import("./pages/UniqueProject.vue"));
+const EmployersInspector = defineAsyncComponent(() => import("./pages/EmployersInspector.vue"));
+const Doctorate = defineAsyncComponent(() => import("./pages/Doctorate.vue"));
+const ScintificActivity = defineAsyncComponent(() => import("./pages/ScintificActivity.vue"));
+const ScintificCouncil = defineAsyncComponent(() => import("./pages/ScientificCouncil.vue"));
+const ScientificSeminars = defineAsyncComponent(() => import("./pages/ScientificSeminars.vue"));
+const ScientificGrants = defineAsyncComponent(() => import("./pages/ScientificGrants.vue"));
+const ScientificCooperation = defineAsyncComponent(() => import("./pages/ScientificCooperation.vue"));
+const YoungScientists = defineAsyncComponent(() => import("./pages/YoungScientists.vue"));
+const ScientificDegrees = defineAsyncComponent(() => import("./pages/ScientificDegrees.vue"));
+const SeminarScientific = defineAsyncComponent(() => import("./pages/SeminarScientific.vue"));
+const ThesisDissertation = defineAsyncComponent(() => import("./pages/ThesisDissertations.vue"));
+const AboutJournal = defineAsyncComponent(() => import("./pages/AboutJournal.vue"));
+const RulesWrite = defineAsyncComponent(() => import("./pages/RulesWrite.vue"));
 
 const layout = useLayoutStore()
 const router = useRouter()
