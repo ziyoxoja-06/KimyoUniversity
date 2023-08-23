@@ -39,6 +39,8 @@ const routes: RouteRecordRaw[] = [
       {path: 'seminar-scientific', component: () => import('pages/ShortPages/BasePages.vue')},
       {path: 'thesis-dissertations', component: () => import('pages/ShortPages/BasePages.vue')},
       {path: 'about-journal', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'archive', component: () => import('pages/ShortPages/BasePages.vue')},
+      {path: 'rules-write', component: () => import('pages/ShortPages/BasePages.vue')},
       {path: 'all-photos', component: () => import('pages/AllPhotos.vue')},
     ],
   },

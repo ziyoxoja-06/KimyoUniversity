@@ -5,7 +5,7 @@ export const useLayoutStore = defineStore('layout', {
     responsive: false,
     shortRout: '',
     pageLoader: false,
-    baseLoader: false
+    baseLoader: false,
   }),
   getters: {
     getShortRout: (state) => state.shortRout
@@ -15,13 +15,7 @@ export const useLayoutStore = defineStore('layout', {
       this.responsive = !this.responsive;
     },
     newRoute(item='dynamic') {
-      console.log('change-2')
       this.shortRout = item
-      console.log('change-3')
 },
-    pageLoaderChanger(){
-      this.pageLoader = !this.pageLoader
-      console.log(this.pageLoader)
-    }
   },
 });

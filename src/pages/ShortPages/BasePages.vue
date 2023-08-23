@@ -1,6 +1,6 @@
 <script setup>
 import {useRouter, useRoute} from "vue-router";
-import {ref, onMounted, computed} from "vue";
+import {ref, onMounted, computed, watch} from "vue";
 import Structure from "./pages/Structure.vue";
 import Managment from "./pages/Managment.vue";
 import Directors from "./pages/Directors.vue";
@@ -19,13 +19,19 @@ import ScientificDegrees from "./pages/ScientificDegrees.vue";
 import SeminarScientific from "./pages/SeminarScientific.vue";
 import ThesisDissertation from "./pages/ThesisDissertations.vue";
 import AboutJournal from "./pages/AboutJournal.vue";
+import ArchivePage from "./pages/ArchivePage.vue";
+import RulesWrite from "./pages/RulesWrite.vue";
 
 import {useLayoutStore} from "../../stores/layout";
 
 const layout = useLayoutStore()
 const router = useRouter()
 const route = useRoute()
-const pageHtml = computed(()=>pagesList.value[route.path.split('/')[1]?route.path.split('/')[1]: 'Not Found Page'])
+const pageHtml = computed(()=>
+{
+  layout.pageLoader = false;
+  return pagesList.value[route.path.split('/')[1]?route.path.split('/')[1]: 'Not Found Page']
+})
 const pagesList = ref({
   "structure": Structure,
   "managment": Managment,
@@ -57,12 +63,14 @@ const pagesList = ref({
   "seminar-scientific": SeminarScientific,
   "thesis-dissertations": ThesisDissertation,
   "about-journal": AboutJournal,
+  "archive": ArchivePage,
+  "rules-write": RulesWrite
 })
 onMounted(()=> {
-  console.log('base')
+  // layout.pageLoader = false
+  //   console.log('page loaded')
   layout.newRoute(route.path.split('/')[1])
 })
-
 </script>
 
 <template>
@@ -75,7 +83,7 @@ onMounted(()=> {
 <style scoped lang="scss">
 .container{
   width: 90%;
-  height: fit-content;
+  min-height: 40vh;
   margin: 20px auto 40px auto;
   box-shadow: 0 0 10px 10px rgba(131, 131, 131, 0.2);
   padding: 20px;

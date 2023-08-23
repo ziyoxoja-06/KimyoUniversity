@@ -1,6 +1,6 @@
 <script setup>
 import {useRoute, useRouter} from "vue-router";
-import {onMounted, onUnmounted, ref} from "vue";
+import {onMounted, watch, onUnmounted, ref} from "vue";
 import {useLayoutStore} from "../../../stores/layout";
 
 const layout = useLayoutStore()
@@ -15,12 +15,12 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       },
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       }
     ]
   },
@@ -32,7 +32,7 @@ const pagesList = {
       {
         name: 'Bazarbaeva M.E',
         role: 'bibliotekachi',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       }
     ]
   },
@@ -45,7 +45,7 @@ const pagesList = {
       {
         name: 'Head of AES - Makhamadiyev Kh.B',
         role: '',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       }
     ]
   },
@@ -57,12 +57,12 @@ const pagesList = {
       {
         name: 'Yuldashev А.Т.',
         role: 'deputy. chairman',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       },
       {
         name: 'Khasanova Y.',
         role: 'secretary',
-        img: 'src/static/img/Manage-one.jpg'
+        img: 'src/assets/img/Manage-one.jpg'
       }
     ]
   },
@@ -76,6 +76,7 @@ onMounted(() => {
   layout.newRoute(route.path.split('/')[1])
   layout.pageLoader = false;
 });
+
 onUnmounted(()=>{
   layout.pageLoader = true
 })

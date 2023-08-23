@@ -61,8 +61,8 @@ export default {
     // Doctorate course
     doctarate_coure: 'Doctorate course',
     course_dsc: 'Doctorate course (DSc)',
-    course_phd: 'Базовый курс докторантуры (PhD)',
-    course_ind: 'Независимый конкурс на ученую степень',
+    course_phd: 'Basic Doctoral Course (PhD)',
+    course_ind: 'Independent competition for a degree',
 
     // Journal
     journal: 'Journal',

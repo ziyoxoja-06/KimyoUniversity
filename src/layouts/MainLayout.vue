@@ -51,7 +51,6 @@ function scrolling() {
   100 < window.scrollY ? (scrollTop.value = true) : (scrollTop.value = false);
 }
 function change() {
-  console.log("change");
   layoutStore.change();
 }
 </script>
@@ -176,10 +175,14 @@ function change() {
       <div
         :class="layoutStore.pageLoader ? 'loader' : 'loader__hide'"
       >
+
         <q-spinner-ios color="red" size="40px" />
       </div>
       <div>
-        <router-view />
+        <div :hidden="layoutStore.pageLoader">
+          <router-view />
+        </div>
+
         <q-fab
           v-if="scrollTop && screenSize.width > 1034"
           v-model="floating"
