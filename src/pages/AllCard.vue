@@ -1,6 +1,6 @@
 <script setup>
 import BaceCard from '../components/BaceCard.vue'
-import {cardDatas} from "./HomePage/module";
+import {allNews} from "./HomePage/module";
 import {useRouter, useRoute} from "vue-router";
 import {onMounted, onUnmounted} from "vue";
 import {useLayoutStore} from "../stores/layout";
@@ -21,7 +21,7 @@ onUnmounted(()=>{
 <template>
   <div class="container ">
     <div class="row">
-     <BaceCard v-for="data in cardDatas"
+     <BaceCard v-for="data in allNews"
                :data="data"
                class="col-12 col-sm-5 col-md-2 col-lg-2 col-xl-2 q-mx-sm q-my-sm"
      />
