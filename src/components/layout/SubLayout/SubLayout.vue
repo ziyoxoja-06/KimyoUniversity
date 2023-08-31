@@ -34,11 +34,7 @@ const menu = computed(() => {
           path: 'directors',
           options: []
         },
-        {
-          title: t('subLayout.about_item.manage_structure'),
-          path: '#',
-          options: []
-        },
+
         {
           title: t('subLayout.about_item.important_results'),
           path: '#',
