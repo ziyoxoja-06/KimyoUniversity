@@ -56,7 +56,7 @@ function change() {
 </script>
 <template>
   <q-layout view="lHh Lpr lFf" @scroll="scrolling($event)">
-      <!--  HEADER  -->
+    <!--  HEADER  -->
     <q-header class="relative-position">
       <!--   contact nav   -->
       <q-toolbar
@@ -73,7 +73,10 @@ function change() {
             +998712000036
           </span>
         </div>
-        <div class="btn" :style="screenSize.width < 880 ? 'display:none;' : ''">
+        <div
+          class="btn q-mr-md"
+          :style="screenSize.width < 880 ? 'display:none;' : ''"
+        >
           <q-input
             v-model="text"
             bg-color="white"
@@ -122,12 +125,20 @@ function change() {
         "
       >
         <div
-          class="flex justify-center items-center"
-          :style="screenSize.width < 600 ? 'width: 100%;' : 'width: 26%;'"
+          class="flex"
+          :style="
+            screenSize.width < 600
+              ? 'width: 100%;'
+              : screenSize.width < 1040
+              ? 'width: 50%;'
+              : 'width: 17%; '
+          "
         >
           <div
             class="flex items-center justify-center cursor-pointer"
-            :style="screenSize < 600 ? 'width: fit-content;' : 'width: 23%;'"
+            :style="
+              screenSize < 600 ? 'width: fit-content;' : 'width: fit-content; '
+            "
           >
             <q-img
               class="q-mr-sm"
@@ -139,7 +150,7 @@ function change() {
               :alt="$t(`mainLayout.nameUniver`)"
               :title="$t('mainLayout.nameUniver')"
               src="../assets/img/header_logo.png"
-              style="max-width: 50px; min-width: 50px"
+              style="max-width: 45px; min-width: 45px"
               @click="$router.push('/')"
             />
           </div>
@@ -157,9 +168,16 @@ function change() {
             {{ t("mainLayout.title") }}
           </div>
         </div>
-        <div class="flex justify-end" style="min-width: 50%; color: #fff">
+        <div
+          class="flex justify-end"
+          :style="
+            screenSize.width < 400
+              ? 'width: fit-content; color: #fff'
+              : 'min-width: 50%; color: #fff'
+          "
+        >
           <q-btn
-            v-if="screenSize.width < 1034"
+            v-if="screenSize.width < 1040"
             flat
             round
             class="cursor-pointer"
@@ -172,10 +190,7 @@ function change() {
     </q-header>
 
     <q-page-container>
-      <div
-        :class="layoutStore.pageLoader ? 'loader' : 'loader__hide'"
-      >
-
+      <div :class="layoutStore.pageLoader ? 'loader' : 'loader__hide'">
         <q-spinner-ios color="red" size="40px" />
       </div>
       <div>
@@ -221,7 +236,6 @@ function change() {
   </q-layout>
 </template>
 
-
 <style lang="scss" scoped>
 $bace-color: #363636;
 .loader {
@@ -245,15 +259,32 @@ $bace-color: #363636;
     position: sticky;
 
     &__text {
-      width: 60%;
+      width: 72%;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }
 
+@media screen and (max-width: 400px) {
+  .nav {
+    &__contact {
+      background-color: $bace-color;
+      transition: all 2s ease;
+    }
+    &__main {
+      position: sticky;
+
+      &__text {
+        width: 60%;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+  }
+}
 .btn {
-  width: 30%;
+  width: fit-content;
   display: flex;
 
   &__animation {
@@ -269,7 +300,6 @@ $bace-color: #363636;
     position: relative;
     overflow: hidden;
     color: $bace-color;
-
     span {
       color: $bace-color;
       font-weight: 600;

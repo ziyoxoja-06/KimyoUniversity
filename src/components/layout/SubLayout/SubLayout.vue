@@ -35,26 +35,26 @@ const menu = computed(() => {
           options: []
         },
 
-        {
-          title: t('subLayout.about_item.important_results'),
-          path: '#',
-          options: []
-        },
-        {
-          title: t('subLayout.about_item.scientific_research'),
-          path: '#',
-          options: []
-        },
-        {
-          title: t('subLayout.about_item.academics'),
-          path: '#',
-          options: []
-        },
+        // {
+        //   title: t('subLayout.about_item.important_results'),
+        //   path: '#',
+        //   options: []
+        // },
+        // {
+        //   title: t('subLayout.about_item.scientific_research'),
+        //   path: '#',
+        //   options: []
+        // },
+        // {
+        //   title: t('subLayout.about_item.academics'),
+        //   path: '#',
+        //   options: []
+        // },
       ]
     },
     // Second dropdown
     {
-      title: t('subLayout.labaratories'),
+      title: t('subLayout.department'),
       path: '#',
       options: [
         {
@@ -62,38 +62,58 @@ const menu = computed(() => {
           path: '#',
           options: [
             {
-              title: t('subLayout.labaratories_item.under_ears'),
+              title: t('subLayout.labaratories_item.one'),
               path: 'seismodinamic',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.astranout'),
+              title: t('subLayout.labaratories_item.two'),
               path: 'dynamic',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.construction'),
+              title: t('subLayout.labaratories_item.three'),
               path: 'experimental',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.buildings'),
+              title: t('subLayout.labaratories_item.four'),
               path: 'mechanic',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.mechanizm'),
+              title: t('subLayout.labaratories_item.five'),
               path: 'theory',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.dinamics'),
+              title: t('subLayout.labaratories_item.six'),
               path: 'prosses',
               options: []
             },
             {
-              title: t('subLayout.labaratories_item.fluid'),
+              title: t('subLayout.labaratories_item.seven'),
               path: 'gas',
+              options: []
+            },
+            {
+              title: t('subLayout.labaratories_item.eight'),
+              path: '#',
+              options: []
+            },
+            {
+              title: t('subLayout.labaratories_item.nine'),
+              path: '#',
+              options: []
+            },
+            {
+              title: t('subLayout.labaratories_item.ten'),
+              path: '#',
+              options: []
+            },
+            {
+              title: t('subLayout.labaratories_item.eleven'),
+              path: '#',
               options: []
             },
           ]
@@ -138,11 +158,6 @@ const menu = computed(() => {
         {
           title: t('subLayout.scientific_council'),
           path: 'scientific-council',
-          options: []
-        },
-        {
-          title: t('subLayout.scientific_seminars'),
-          path: 'scientific-seminars',
           options: []
         },
         {
@@ -239,6 +254,18 @@ const menu = computed(() => {
         },
       ]
     },
+    //seven
+    {
+      title: t('subLayout.collactive'),
+      path: '#',
+      options: []
+    },
+    //eigth
+    {
+      title: t('subLayout.contact'),
+      path: '#',
+      options: []
+    },
   ]
 })
 const store = useLayoutStore()
@@ -288,7 +315,7 @@ onUnmounted(() => {
               <q-list>
                 <q-item v-for="item in options" v-close-popup clickable @click="langChange(item)">
                   <q-item-section>
-                    <q-item-label>{{ item.label }}</q-item-label>
+                    <q-item-label >{{ item.label }}</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -304,7 +331,7 @@ onUnmounted(() => {
       </div>
       <div v-for="item in menu" class="cursor-pointer sub__menu">
         {{ item.title }}
-        <q-icon v-if="item.options.length>0" name="arrow_drop_down" size="20px"/>
+        <q-icon v-if="item.options.length>0" name="arrow_drop_down" size="15px"/>
         <q-menu v-if="item.options.length>0">
           <q-list v-for="item2 in item.options">
             <q-item v-close-popup="item2.options.length<0" clickable @click="newRoute(true,item2)">

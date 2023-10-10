@@ -133,50 +133,50 @@ const pagesList = {
 const pageHtml = computed(()=> {
   return pagesList[layoutStore.shortRout]
 })
-const columns = [
-  {name: 'id', label: '№', field: 'id', align: 'left', sortable: true, style: 'width: 20px'},
-  {
-    name: 'name',
-    required: true,
-    label: 'Name',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true,
-    style: 'width: 100px'
-  },
-  {name: 'degree', align: 'left', label: 'Degree', field: 'degree', sortable: true},
-  {name: 'position', label: 'Position', field: 'position', align: 'left', sortable: true},
-  {name: 'contact', label: 'Contact', align: 'left', field: 'contact'},
-  {name: 'email', label: 'Email', align: 'left', field: 'email'},
-]
+// const columns = [
+//   {name: 'id', label: '№', field: 'id', align: 'left', sortable: true, style: 'width: 20px'},
+//   {
+//     name: 'name',
+//     required: true,
+//     label: 'Name',
+//     align: 'left',
+//     field: row => row.name,
+//     format: val => `${val}`,
+//     sortable: true,
+//     style: 'width: 100px'
+//   },
+//   {name: 'degree', align: 'left', label: 'Degree', field: 'degree', sortable: true},
+//   {name: 'position', label: 'Position', field: 'position', align: 'left', sortable: true},
+//   {name: 'contact', label: 'Contact', align: 'left', field: 'contact'},
+//   {name: 'email', label: 'Email', align: 'left', field: 'email'},
+// ]
 
-const rows = [
-  {
-    id: 1,
-    name: 'Mardonov Botir Mardonovich',
-    degree: 'Doctor of Physical and Mathematical Sciences, Professor',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'batsam@list.ru',
-  },
-  {
-    id: 2,
-    name: 'Xojmetov Gʼoibnazar Xadievich',
-    degree: 'Doctor of Technical Sciences, Professor',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'instmech@academy.uz',
-  },
-  {
-    id: 3,
-    name: 'Bekmirzaev Diyorbek Аbdugapporovich',
-    degree: 'Doctor of Technical Sciences (DSc)',
-    position: 'Leading researcher',
-    contact: '+998 71 262 78 34',
-    email: 'diyorbek_84@mail.ru',
-  },
-]
+// const rows = [
+//   {
+//     id: 1,
+//     name: 'Mardonov Botir Mardonovich',
+//     degree: 'Doctor of Physical and Mathematical Sciences, Professor',
+//     position: 'Leading researcher',
+//     contact: '+998 71 262 78 34',
+//     email: 'batsam@list.ru',
+//   },
+//   {
+//     id: 2,
+//     name: 'Xojmetov Gʼoibnazar Xadievich',
+//     degree: 'Doctor of Technical Sciences, Professor',
+//     position: 'Leading researcher',
+//     contact: '+998 71 262 78 34',
+//     email: 'instmech@academy.uz',
+//   },
+//   {
+//     id: 3,
+//     name: 'Bekmirzaev Diyorbek Аbdugapporovich',
+//     degree: 'Doctor of Technical Sciences (DSc)',
+//     position: 'Leading researcher',
+//     contact: '+998 71 262 78 34',
+//     email: 'diyorbek_84@mail.ru',
+//   },
+// ]
 
 const screenSize = ref({width: window.innerWidth, height: window.innerHeight});
 const updateScreenSize = () => {
@@ -214,7 +214,7 @@ onUnmounted(()=>{
           </div>
         </div>
       </div>
-      <div class="table">
+      <!-- <div class="table">
         <q-table
           :columns="columns" :filter="filter"
           :grid="screenSize.width < 1250"
@@ -238,7 +238,7 @@ onUnmounted(()=>{
             </q-td>
           </template>
         </q-table>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
