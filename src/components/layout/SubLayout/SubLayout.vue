@@ -21,7 +21,7 @@ const menu = computed(() => {
         },
         {
           title: t('subLayout.about_item.about_institute'),
-          path: '#',
+          path: 'about-university',
           options: []
         },
         {
@@ -34,22 +34,6 @@ const menu = computed(() => {
           path: 'directors',
           options: []
         },
-
-        // {
-        //   title: t('subLayout.about_item.important_results'),
-        //   path: '#',
-        //   options: []
-        // },
-        // {
-        //   title: t('subLayout.about_item.scientific_research'),
-        //   path: '#',
-        //   options: []
-        // },
-        // {
-        //   title: t('subLayout.about_item.academics'),
-        //   path: '#',
-        //   options: []
-        // },
       ]
     },
     // Second dropdown

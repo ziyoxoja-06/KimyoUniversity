@@ -18,13 +18,13 @@ function openNewTab(link) {
 
 <template>
   <div class="content">
-    <p class="text-h5 text-center">Managment</p>
+    <p class="text-h5 text-center">Руководство</p>
 
     <div class="sub_content q-mt-xl">
       <q-img alt="img" class="img q-mr-md" src="src/assets/img/Manage-one.jpg"
              title="Ibragimov Aziz Bakhtiyarovich - Director of the Institute" width="200px"/>
       <div class=" base q-mt-lg q-ml-xl ">
-        <p class="text-h4 title">Ibragimov Aziz Bakhtiyarovich - Director of the Institute</p>
+        <p class="text-h4 title">Ибрагимов Азиз Бахтиярович - Директор института</p>
         <div class="row">
           <div class="col">
             <div class="flex items-center q-mt-md">
@@ -46,7 +46,7 @@ function openNewTab(link) {
           <div class="col">
             <div class=" flex items-center q-mt-md">
               <q-btn class="bg-deep-purple-6 btn" color="purple" icon="fas fa-calendar-alt" round/>
-              <span class="cursor-pointer text__hover">Monday - Friday from 9:00 a.m. to 5:00 p.m.</span>
+              <span class="cursor-pointer text__hover">Понедельник - пятница с 09:00 до 17:00</span>
               <q-dialog v-model="alert__one">
                 <q-card>
                   <q-card-section class="q-mt-md">
@@ -54,7 +54,7 @@ function openNewTab(link) {
                   </q-card-section>
 
                   <q-card-section class="q-pt-none">
-                    Director of the INSTITUTE OF GENERAL AND INORGANIC CHEMISTRY OF THE ACADEMY OF SCIENCES OF THE REPUBLIC OF UZBEKISTAN (from 2022 to present day).
+                    Директор института ОБЩЕЙ И НЕОРГАНИЧЕСКОЙ ХИМИИ АКАДЕМИИ НАУК РЕСПУБЛИКИ УЗБЕКИСТАН (С 2022 года по настоящее время).
                   </q-card-section>
 
                   <q-card-actions align="right">

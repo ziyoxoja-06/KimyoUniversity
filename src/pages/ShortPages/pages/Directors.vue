@@ -1,65 +1,89 @@
 <script setup>
-import {onUnmounted, onMounted, ref} from "vue";
-import {useLayoutStore} from "../../../stores/layout";
+import { onUnmounted, onMounted, ref } from "vue";
+import { useLayoutStore } from "../../../stores/layout";
 const layoutStore = useLayoutStore();
 onMounted(() => {
-  layoutStore.pageLoader = false
-})
-onUnmounted(()=>{
-  layoutStore.pageLoader = true
-})
+  layoutStore.pageLoader = false;
+});
+onUnmounted(() => {
+  layoutStore.pageLoader = true;
+});
 const data = [
-  { title: 'Naumov Sergey Nikolaevich (1874-1933), Doctor of Chemical Sciences, Professor, Organic Chemistry.',
-    date: '1933'
+  {
+    title:
+      "Наумов Сергей Николаевич (1874-1933 гг.), доктор  химических наук, профессор, органическая химия.",
+    date: "1933",
   },
-  { title: 'Kolosovsky Nikolai Aleksandrovich (1886-1978), Doctor of Physical and Chemical Sciences at the University of Liege, professor, organic chemistry.',
-    date: "1933-1935"
+  {
+    title:
+      "Колосовский Николай Александрович   (1886-1978  гг.), доктор физико-химических наук  Льежского университета,  профессор,  органическая химия.",
+    date: "1933-1935",
   },
-  { title: 'Usanovich Mikhail Ilyich (1894-1981), Doctor of Chemical Sciences, Professor, Academician of the Academy of Sciences of the Kazakh SSR (1962), physical chemistry.',
-    date: "1935-1942"
+  {
+    title:
+      "Усанович Михаил Ильич (1894-1981 гг.), доктор  химических наук, профессор, академик АН Казахской ССР (1962), физическая химия.",
+    date: "1935-1942",
   },
-  { title: 'Tashpulatov Yulchi Tashpulatovich (1905-1956), doctor of technical sciences, chemistry of silicates.',
-    date: "1942-1946"
+  {
+    title:
+      "Ташпулатов Юлчи Ташпулатович (1905-1956 гг.), доктор технических наук, химия силикатов.",
+    date: "1942-1946",
   },
-  { title: 'Sadykov Abid Sadykovich (1913 - 1987), Doctor of Chemical Sciences, Professor, Academician of the Academy of Sciences of the USSR and the Academy of Sciences of the Republic of Uzbekistan, organic and bioorganic chemistry.',
-    date: "1946-1949"
+  {
+    title:
+      "Садыков Абид Садыкович (1913 – 1987 гг.), доктор химических наук, профессор, академик АН СССР и АН РУз, органическая и биоорганическая химия.",
+    date: "1946-1949",
   },
-  { title: 'Yunusov Sabir Yunusovich (1909-1995), doctor of chemical sciences, professor, academician of the Academy of Sciences of the Republic of Uzbekistan, chemistry of plant substances.',
-    date: "1949-1952"
+  {
+    title:
+      "Юнусов Сабир Юнусович  (1909-1995 гг.), доктор химических наук, профессор, академик АН РУз, химия растительных веществ.",
+    date: "1949-1952",
   },
-  { title: 'Usmanov Khamdam Usmanovich (1916-1994), doctor of technical sciences, professor, academician of the Academy of Sciences of the Republic of Uzbekistan, chemistry and technology of cotton cellulose, radiation chemistry of polymers and synthesis of medical polymers.',
-    date: "1952-1956"
+  {
+    title:
+      "Усманов Хамдам Усманович (1916-1994 гг.), доктор технических наук, профессор,  академик АН РУз, химия и технология хлопковой целлюлозы, радиационная химия полимеров и синтез полимеров медицинского назначения.",
+    date: "1952-1956",
   },
-  { title: 'Aliev Yakub Yusupovich (1911-1965), Doctor of Chemical Sciences, organic catalysis.',
-    date: "1956-1965"
+  {
+    title:
+      "Алиев Якуб Юсупович (1911-1965 гг.),  доктор химических наук, органический катализ.",
+    date: "1956-1965",
   },
-  { title: 'Akhmedov Karim Sadykovich (1914-2003), Doctor of Chemical Sciences, Professor, Academician of the Academy of Sciences of the Republic of Uzbekistan, colloid chemistry, physical and chemical mechanics and physical chemistry of polymers.',
-    date: "1965-1972"
+  {
+    title:
+      "Ахмедов Карим Садыкович (1914- 2003 гг.), доктор химических наук, профессор, академик АН РУз,  коллоидная химия, физико-химическая механика и физическая химия полимеров. ",
+    date: "1965-1972",
   },
-  { title: 'Askarov Mirkhozhi Askarovich (born in 1931), Doctor of Technical Sciences, Professor, Academician of the Academy of Sciences of the Republic of Uzbekistan, polymer chemistry, synthesis of new monomers and polymers, use of polymers.',
-    date: "1972-1982"
+  {
+    title:
+      "Аскаров Мирхожи Аскарович (1931 г. рождения), доктор технических наук, профессор, академик АН РУз, химия полимеров, синтез новых мономеров и полимеров, использование полимеров.",
+    date: "1972-1982",
   },
-  { title: 'Beglov Boris Mikhailovich (born in 1938), Doctor of Technical Sciences, Professor, Academician of the Academy of Sciences of the Republic of Uzbekistan, technology of inorganic substances.',
-    date: "1982-1989"
+  {
+    title:
+      "Беглов Борис Михайлович (1938 г. рождения), доктор технических наук, профессор, академик АН РУз, технология неорганических веществ. ",
+    date: "1982-1989",
   },
-  { title: 'Salimov Zokirzhon Salimovich (born in 1940), Doctor of Technical Sciences, Professor, Academician of the Academy of Sciences of the Republic of Uzbekistan, processes and apparatuses of chemical technology, oil and gas chemistry.',
-    date: "1990-2010"
+  {
+    title:
+      "Салимов Зокиржон Салимович (1940 г. рождения), доктор технических наук, профессор, академик АН РУз, процессы и аппараты  химической технологии, химия нефти и газа.",
+    date: "1990-2010",
   },
-  { title: 'Zakirov Bakhtiyor Sobirzhanovich (born in 1946), Doctor of Chemical Sciences, technology of inorganic substances, chemicalization of agro-industrial production.',
-    date: "December 21, 2010 to present"
+  {
+    title:
+      "Закиров Бахтиёр Собиржанович (1946 г. рождения), доктор химических наук, технология неорганических веществ, химизация агропромышленного прооизводства.",
+    date: "December 21, 2010 to present",
   },
-]
+];
 </script>
 
 <template>
-  <h4 class="text-center text-weight-bold">Directors of the Institute</h4>
-<div class="text-h6 text-center text-weight-bold" v-for="item in data">
-  <p>{{item.date}}</p>
-  <p>{{item.title}}</p>
-  <q-separator class="q-my-md" inset/>
-</div>
+  <h4 class="text-center text-weight-bold">Директора Института</h4>
+  <div class="text-h6 text-center text-weight-bold" v-for="item in data">
+    <p>{{ item.date }}</p>
+    <p>{{ item.title }}</p>
+    <q-separator class="q-my-md" inset />
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

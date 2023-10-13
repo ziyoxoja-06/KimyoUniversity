@@ -1,8 +1,7 @@
 <script setup>
-import {useRouter, useRoute} from "vue-router";
+import { useRoute} from "vue-router";
 import {ref, onMounted, computed, defineAsyncComponent} from "vue";
 import {useLayoutStore} from "../../stores/layout";
-import ArchivePage from "./pages/ArchivePage.vue";
 
 const Structure = defineAsyncComponent(() => import("./pages/Structure.vue"));
 const Managment = defineAsyncComponent(() => import("./pages/Managment.vue"));
@@ -23,9 +22,10 @@ const SeminarScientific = defineAsyncComponent(() => import("./pages/SeminarScie
 const ThesisDissertation = defineAsyncComponent(() => import("./pages/ThesisDissertations.vue"));
 const AboutJournal = defineAsyncComponent(() => import("./pages/AboutJournal.vue"));
 const RulesWrite = defineAsyncComponent(() => import("./pages/RulesWrite.vue"));
+const AboutUniver = defineAsyncComponent(() => import("./pages/AboutUniver.vue"));
+const ArchivePage = defineAsyncComponent(() => import("./pages/ArchivePage.vue"));
 
 const layout = useLayoutStore()
-const router = useRouter()
 const route = useRoute()
 const pageHtml = computed(()=>
 {
@@ -64,7 +64,8 @@ const pagesList = ref({
   "thesis-dissertations": ThesisDissertation,
   "about-journal": AboutJournal,
   "archive": ArchivePage,
-  "rules-write": RulesWrite
+  "rules-write": RulesWrite,
+  "about-university":AboutUniver
 })
 onMounted(()=> {
   // layout.pageLoader = false
