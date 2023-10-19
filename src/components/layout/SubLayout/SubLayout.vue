@@ -216,6 +216,12 @@ const menu = computed(() => {
         },
       ]
     },
+     //seven
+     {
+      title: t('subLayout.collactive'),
+      path: '#',
+      options: []
+    },
     // Sixth dropdown
     {
       title: t('subLayout.journal'),
@@ -237,12 +243,6 @@ const menu = computed(() => {
           options: []
         },
       ]
-    },
-    //seven
-    {
-      title: t('subLayout.collactive'),
-      path: '#',
-      options: []
     },
     //eigth
     {
