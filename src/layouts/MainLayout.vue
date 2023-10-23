@@ -5,6 +5,7 @@ import { useLayoutStore } from "../stores/layout.ts";
 import { onMounted, ref } from "vue";
 import { useQuasar } from "quasar";
 import { useI18n } from "vue-i18n";
+import TestLayout from "src/components/layout/TestLayout.vue";
 
 const { t, locale } = useI18n();
 const $q = useQuasar();
@@ -60,10 +61,16 @@ function change() {
     <q-header class="relative-position">
       <!--   contact nav   -->
       <q-toolbar
-        class="nav__contact flex justify-between items-center q-py-sm"
+      class="q-p-none"
         :style="scrollTop ? 'position: fixed' : 'position: sticky;'"
       >
-        <div class="q-ml-md">
+      <div style="width: 100%;">
+        <TestLayout />
+        <div
+        class="nav__contact flex justify-between items-center q-py-sm"
+        
+      >
+    <div class="q-ml-md">
           <span class="text-white">
             <q-icon class="q-mr-sm q-ml-sm" name="fas fa-at" />
             ionxanruz@mail.ru
@@ -73,7 +80,7 @@ function change() {
             +998712000036
           </span>
         </div>
-        <div
+         <div
           class="btn q-mr-md"
           :style="screenSize.width < 880 ? 'display:none;' : ''"
         >
@@ -113,6 +120,12 @@ function change() {
             />
           </div>
         </div>
+    </div>
+      </div>
+        
+        
+        
+       
       </q-toolbar>
 
       <!--   main nav   -->
@@ -252,6 +265,7 @@ $bace-color: #363636;
 }
 .nav {
   &__contact {
+    width: 100%;
     background-color: $bace-color;
     transition: all 2s ease;
   }
