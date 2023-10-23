@@ -1,6 +1,7 @@
 <script setup>
 import SubLayout from "src/components/layout/SubLayout/SubLayout.vue";
 import FooterLayout from "src/components/layout/FooterLayout.vue";
+import {  } from "quasar";
 import { useLayoutStore } from "../stores/layout.ts";
 import { onMounted, ref } from "vue";
 import { useQuasar } from "quasar";
@@ -61,19 +62,13 @@ function change() {
     <q-header class="relative-position">
       <!--   contact nav   -->
       <q-toolbar
-      class="q-p-none"
-        :style="scrollTop ? 'position: fixed' : 'position: sticky;'"
-      >
-      <div style="width: 100%;">
-        <TestLayout />
-        <div
-        class="nav__contact flex justify-between items-center q-py-sm"
-        
+      class="nav__contact flex justify-between items-center q-py-sm"
+        :style="scrollTop ? 'position: fixed; ' : 'position: sticky; '"
       >
     <div class="q-ml-md">
           <span class="text-white">
             <q-icon class="q-mr-sm q-ml-sm" name="fas fa-at" />
-            ionxanruz@mail.ru
+            ionxanruz@mail.ru {{ scrollTop }}
           </span>
           <span>
             <q-icon class="q-mr-sm q-ml-md" name="fa-solid fa-phone" />
@@ -119,13 +114,7 @@ function change() {
               size="16px"
             />
           </div>
-        </div>
-    </div>
-      </div>
-        
-        
-        
-       
+        </div>       
       </q-toolbar>
 
       <!--   main nav   -->
