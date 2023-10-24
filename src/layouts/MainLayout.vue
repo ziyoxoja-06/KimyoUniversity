@@ -74,7 +74,7 @@ function change() {
     <div class="q-ml-md">
           <span class="text-white">
             <q-icon class="q-mr-sm q-ml-sm" name="fas fa-at" />
-            ionxanruz@mail.ru {{ scrollTop }}
+            ionxanruz@mail.ru
           </span>
           <span>
             <q-icon class="q-mr-sm q-ml-md" name="fa-solid fa-phone" />
