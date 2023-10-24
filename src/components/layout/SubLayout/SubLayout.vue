@@ -114,7 +114,7 @@ const menu = computed(() => {
         },
         {
           title: t('subLayout.unique_objects'),
-          path: 'unique-project',
+          path: '#',
           options: []
         },
         {
