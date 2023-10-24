@@ -296,9 +296,9 @@ const allNews = {
 
 }
 const images = [
-  'public/img/carusel_1.jpg',
-  'public/img/carusel_2.jpg',
-  'public/img/carusel_3.jpg',
+  './carusel_1.jpg',
+  './carusel_2.jpg',
+  './carusel_3.jpg',
 ]
 
 export {
