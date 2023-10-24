@@ -35,6 +35,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="home">
     <section class="home__scroll">
+      
       <ImgScroll :autoplay="true" :img-src="images" :slide-page="1" />
       <div class="home__action">
         <q-btn class="home__btn" color="primary" href="#about" :label="t('mainLayout.learn_more')"></q-btn>
