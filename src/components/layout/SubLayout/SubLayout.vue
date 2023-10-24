@@ -247,7 +247,7 @@ const menu = computed(() => {
     //eigth
     {
       title: t('subLayout.contact'),
-      path: '#',
+      path: 'contact',
       options: []
     },
   ]
@@ -313,7 +313,7 @@ onUnmounted(() => {
           <q-btn class="cursor-pointer q-mr-xl" dense flat icon="close" rounded size="20px" @click="store.change()"/>
         </div>
       </div>
-      <div v-for="item in menu" class="cursor-pointer sub__menu">
+      <div v-for="item in menu" @click="newRoute(true,item)"  class="cursor-pointer sub__menu">
         {{ item.title }}
         <q-icon v-if="item.options.length>0" name="arrow_drop_down" size="15px"/>
         <q-menu v-if="item.options.length>0">
