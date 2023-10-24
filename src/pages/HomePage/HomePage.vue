@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
     </section>
     <!--     Banner  -->
     <section class="banner">
-      <q-img src="./banner.png" />
+      <q-img src="src/assets/img/banner.png" />
     </section>
     <!--     News  -->
     <section id="news" class="news">

@@ -118,9 +118,7 @@ function openNewTab(link) {
           </div>
         </div>
       </div>
-
     </div>
-    
   </div>
 </template>
 
